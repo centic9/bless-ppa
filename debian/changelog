@@ -1,3 +1,10 @@
+bless (0.6.0-5.1) unstable; urgency=medium
+
+  * Don't depend on rarian. Thanks Jeremy Bicha for the patch.
+    (Closes: #885114)
+
+ -- Tiago Bortoletto Vaz <tiago@debian.org>  Fri, 26 Oct 2018 10:11:11 -0400
+
 bless (0.6.0-5) unstable; urgency=low
 
   * [6357a2e] Convert from CBDS to DH7

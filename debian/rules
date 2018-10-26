@@ -4,32 +4,23 @@
 # Uncomment this to turn on verbose mode.
 # export DH_VERBOSE=1
 
-VERSION = $(shell dpkg-parsechangelog | grep ^Vers | cut -d\  -f2)
-UPVERSION = $(shell echo $(VERSION) | sed 's,-.*,,' | sed 's,+dfsg.*,,') 
-
 override_dh_auto_configure:
-	dh_auto_configure -- --prefix=/usr --without-scrollkeeper --disable-nls MCS=/usr/bin/mono-csc
+	dh_auto_configure -- --libdir=/usr/lib --without-scrollkeeper --disable-nls MCS=/usr/bin/mono-csc
 
 override_dh_auto_test:
-	
 
 override_dh_install:
 # remove extra doc-files
 	dh_install
 	rm -f $(CURDIR)/debian/bless/usr/share/doc/bless/bless.spec
-	rm -f $(curdir)/debian/bless/usr/share/doc/bless/copying
+	rm -f $(curdir)/debian/bless/usr/share/doc/bless/COPYING
 	rm -f $(curdir)/debian/bless/usr/share/doc/bless/ChangeLog
 	rm -f $(CURDIR)/debian/bless/usr/share/doc/bless/INSTALL
 	rm -f $(CURDIR)/debian/bless/usr/share/doc/bless/README
 	rm -f $(CURDIR)/debian/bless/usr/share/doc/bless/README.packaging
 
-get-orig-source:
-	[ -d ../tarballs ] || mkdir ../tarballs
-	uscan \
-		--force-download \
-		--download-version $(UPVERSION) \
-		--rename \
-		--destdir ../tarballs
+override_dh_compress:
+	dh_compress -X usr/share/doc/bless/user
 
 %:
 	dh $@ --with cli

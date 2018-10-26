@@ -1,8 +1,16 @@
-Index: bless/builder/ModuleBuilder.cs
-===================================================================
---- bless.orig/builder/ModuleBuilder.cs	2011-05-25 21:04:08.826833195 +0200
-+++ bless/builder/ModuleBuilder.cs	2011-05-25 21:04:28.776833188 +0200
-@@ -119,7 +119,7 @@
+From: Julian Taylor <jtaylor.debian@googlemail.com>
+Date: Wed, 25 May 2011 21:05:07 +0200
+Subject: replace gmcs usage with mono-csc
+
+---
+ builder/ModuleBuilder.cs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/builder/ModuleBuilder.cs b/builder/ModuleBuilder.cs
+index 0f62e92..fa8c204 100644
+--- a/builder/ModuleBuilder.cs
++++ b/builder/ModuleBuilder.cs
+@@ -119,7 +119,7 @@ public class ModuleBuilder
  		//System.Console.WriteLine("gmcs {0}", sb.ToString());
  		System.Console.WriteLine(">> Building module {0}...", module.Name);
  

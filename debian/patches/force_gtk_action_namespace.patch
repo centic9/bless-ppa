@@ -1,7 +1,22 @@
-diff -urNad bless-0.5.2.orig/src/gui/plugins/BitwiseOperationsPlugin.cs bless-0.5.2/src/gui/plugins/BitwiseOperationsPlugin.cs
---- bless-0.5.2.orig/src/gui/plugins/BitwiseOperationsPlugin.cs	2008-04-10 03:50:32.000000000 +0100
-+++ bless-0.5.2/src/gui/plugins/BitwiseOperationsPlugin.cs	2008-04-10 03:51:45.000000000 +0100
-@@ -30,6 +30,8 @@
+From: Chris Lamb <chris@chris-lamb.co.uk>
+Date: Thu, 10 Apr 2008 03:55:43 +0100
+Subject: force_gtk_action_namespace
+
+Debian-Bug: https://bugs.debian.org/475208
+---
+ src/gui/plugins/BitwiseOperationsPlugin.cs | 2 ++
+ src/gui/plugins/EditOperationsPlugin.cs    | 2 ++
+ src/gui/plugins/FileOperationsPlugin.cs    | 2 ++
+ src/gui/plugins/FindReplacePlugin.cs       | 2 ++
+ src/gui/plugins/HistoryPlugin.cs           | 2 ++
+ src/gui/plugins/InfobarPlugin.cs           | 2 ++
+ 6 files changed, 12 insertions(+)
+
+diff --git a/src/gui/plugins/BitwiseOperationsPlugin.cs b/src/gui/plugins/BitwiseOperationsPlugin.cs
+index 12cb15c..1afed7b 100644
+--- a/src/gui/plugins/BitwiseOperationsPlugin.cs
++++ b/src/gui/plugins/BitwiseOperationsPlugin.cs
+@@ -30,6 +30,8 @@ using Bless.Plugins;
  using Bless.Buffers;
  using Mono.Unix;
  
@@ -10,10 +25,11 @@ diff -urNad bless-0.5.2.orig/src/gui/plugins/BitwiseOperationsPlugin.cs bless-0.
  namespace Bless.Gui.Plugins {
  
  ///<summary>
-diff -urNad bless-0.5.2.orig/src/gui/plugins/EditOperationsPlugin.cs bless-0.5.2/src/gui/plugins/EditOperationsPlugin.cs
---- bless-0.5.2.orig/src/gui/plugins/EditOperationsPlugin.cs	2008-04-10 03:50:32.000000000 +0100
-+++ bless-0.5.2/src/gui/plugins/EditOperationsPlugin.cs	2008-04-10 03:52:06.000000000 +0100
-@@ -27,6 +27,8 @@
+diff --git a/src/gui/plugins/EditOperationsPlugin.cs b/src/gui/plugins/EditOperationsPlugin.cs
+index b4a6fcd..ab1cefb 100644
+--- a/src/gui/plugins/EditOperationsPlugin.cs
++++ b/src/gui/plugins/EditOperationsPlugin.cs
+@@ -27,6 +27,8 @@ using Bless.Plugins;
  using Bless.Gui.Dialogs;
  using Bless.Tools;
  
@@ -22,10 +38,11 @@ diff -urNad bless-0.5.2.orig/src/gui/plugins/EditOperationsPlugin.cs bless-0.5.2
  namespace Bless.Gui.Plugins {
  
  public class EditOperationsPlugin : GuiPlugin
-diff -urNad bless-0.5.2.orig/src/gui/plugins/FileOperationsPlugin.cs bless-0.5.2/src/gui/plugins/FileOperationsPlugin.cs
---- bless-0.5.2.orig/src/gui/plugins/FileOperationsPlugin.cs	2008-04-10 03:50:32.000000000 +0100
-+++ bless-0.5.2/src/gui/plugins/FileOperationsPlugin.cs	2008-04-10 03:52:26.000000000 +0100
-@@ -29,6 +29,8 @@
+diff --git a/src/gui/plugins/FileOperationsPlugin.cs b/src/gui/plugins/FileOperationsPlugin.cs
+index 45319d7..04edd01 100644
+--- a/src/gui/plugins/FileOperationsPlugin.cs
++++ b/src/gui/plugins/FileOperationsPlugin.cs
+@@ -29,6 +29,8 @@ using System.IO;
  using Gtk;
  using Mono.Unix;
  
@@ -34,10 +51,11 @@ diff -urNad bless-0.5.2.orig/src/gui/plugins/FileOperationsPlugin.cs bless-0.5.2
  namespace Bless.Gui.Plugins {
  
  public class FileOperationsPlugin : GuiPlugin
-diff -urNad bless-0.5.2.orig/src/gui/plugins/FindReplacePlugin.cs bless-0.5.2/src/gui/plugins/FindReplacePlugin.cs
---- bless-0.5.2.orig/src/gui/plugins/FindReplacePlugin.cs	2008-04-10 03:50:32.000000000 +0100
-+++ bless-0.5.2/src/gui/plugins/FindReplacePlugin.cs	2008-04-10 03:51:21.000000000 +0100
-@@ -31,6 +31,8 @@
+diff --git a/src/gui/plugins/FindReplacePlugin.cs b/src/gui/plugins/FindReplacePlugin.cs
+index a656760..7063d0c 100644
+--- a/src/gui/plugins/FindReplacePlugin.cs
++++ b/src/gui/plugins/FindReplacePlugin.cs
+@@ -31,6 +31,8 @@ using System.Text;
  using Bless.Plugins;
  using Mono.Unix;
  
@@ -46,10 +64,11 @@ diff -urNad bless-0.5.2.orig/src/gui/plugins/FindReplacePlugin.cs bless-0.5.2/sr
  namespace Bless.Gui.Plugins {
  
  public class FindReplacePlugin : GuiPlugin
-diff -urNad bless-0.5.2.orig/src/gui/plugins/HistoryPlugin.cs bless-0.5.2/src/gui/plugins/HistoryPlugin.cs
---- bless-0.5.2.orig/src/gui/plugins/HistoryPlugin.cs	2008-04-10 03:50:32.000000000 +0100
-+++ bless-0.5.2/src/gui/plugins/HistoryPlugin.cs	2008-04-10 03:53:22.000000000 +0100
-@@ -26,6 +26,8 @@
+diff --git a/src/gui/plugins/HistoryPlugin.cs b/src/gui/plugins/HistoryPlugin.cs
+index d84c5f4..d6365a2 100644
+--- a/src/gui/plugins/HistoryPlugin.cs
++++ b/src/gui/plugins/HistoryPlugin.cs
+@@ -26,6 +26,8 @@ using Bless.Plugins;
  using Bless.Gui;
  using Bless.Tools;
  
@@ -58,10 +77,11 @@ diff -urNad bless-0.5.2.orig/src/gui/plugins/HistoryPlugin.cs bless-0.5.2/src/gu
  namespace Bless.Gui.Plugins {
  
  public class HistoryPlugin : GuiPlugin
-diff -urNad bless-0.5.2.orig/src/gui/plugins/InfobarPlugin.cs bless-0.5.2/src/gui/plugins/InfobarPlugin.cs
---- bless-0.5.2.orig/src/gui/plugins/InfobarPlugin.cs	2008-04-10 03:50:32.000000000 +0100
-+++ bless-0.5.2/src/gui/plugins/InfobarPlugin.cs	2008-04-10 03:52:48.000000000 +0100
-@@ -28,6 +28,8 @@
+diff --git a/src/gui/plugins/InfobarPlugin.cs b/src/gui/plugins/InfobarPlugin.cs
+index 12889ea..29327e5 100644
+--- a/src/gui/plugins/InfobarPlugin.cs
++++ b/src/gui/plugins/InfobarPlugin.cs
+@@ -28,6 +28,8 @@ using Bless.Buffers;
  using Bless.Tools;
  using Mono.Unix;
  
