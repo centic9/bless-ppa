@@ -105,7 +105,7 @@ public class InfobarPlugin : GuiPlugin
 				};
 
 		ActionEntry[] actionEntries = new ActionEntry[] {
-										  new ActionEntry ("Statusbar", null, "Statusbar", null, null, null)
+										  new ActionEntry ("Statusbar", null, Catalog.GetString("Statusbar"), null, null, null)
 									  };
 
 		ActionGroup group = new ActionGroup ("StatusbarActions");
@@ -257,7 +257,6 @@ public class Infobar : Gtk.HPaned, IInfoDisplay
 	Statusbar OffsetStatusbar;
 	Statusbar SelectionStatusbar;
 	Statusbar OverwriteStatusbar;
-	Tooltips tips;
 
 	DataBook dataBook;
 
@@ -440,7 +439,8 @@ public class Infobar : Gtk.HPaned, IInfoDisplay
 			string endString = BaseConverter.ConvertToString(sel.End, numberBase, true, true, 1);
 			string sizeString = BaseConverter.ConvertToString(sel.Size, numberBase, true, true, 1);
 
-			str = string.Format(Catalog.GetString("Selection: {0} to {1} ({2} bytes)"), startString, endString, sizeString);
+			str = string.Format(Catalog.GetString("Selection: {0} to {1}") + " " + Catalog.GetPluralString("({2} byte)", "({2} bytes)", (int)sel.Size),
+					startString, endString, sizeString);
 		}
 
 		SelectionStatusbar.Push(0, str);
@@ -461,9 +461,9 @@ public class Infobar : Gtk.HPaned, IInfoDisplay
 
 		OverwriteStatusbar.Pop(0);
 		if (dv.Overwrite == true)
-			OverwriteStatusbar.Push(0, " OVR");
+			OverwriteStatusbar.Push(0, " " + Catalog.GetString("OVR"));
 		else
-			OverwriteStatusbar.Push(0, " INS");
+			OverwriteStatusbar.Push(0, " " + Catalog.GetString("INS"));
 	}
 
 	///<summary>

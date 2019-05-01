@@ -1,6 +1,5 @@
-// created on 1/21/2005 at 2:32 PM
 /*
- *   Copyright (c) 2005, Alexandros Frantzis (alf82 [at] freemail [dot] gr)
+ *   Copyright (c) 2018, Alexandros Frantzis (alf82 [at] freemail [dot] gr)
  *
  *   This file is part of Bless.
  *
@@ -18,28 +17,11 @@
  *   along with Bless; if not, write to the Free Software
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
+namespace BlessBuilder {
 
-using System;
-using Gtk;
-using Gdk;
-using Bless.Util;
-using Mono.Unix;
-
-namespace Bless.Gui.Dialogs {
-
-public class AboutDialog: Gtk.AboutDialog
+public sealed class ConfigureDefines
 {
-	public AboutDialog()
-	{
-		Artists = new string[] {"Michael Iatrou"};
-		Authors = new string[] {"Alexandros Frantzis"};
-		Copyright =  Catalog.GetString("Copyright 2004 - 2018 Alexandros Frantzis");
-		ProgramName = "Bless";
-		Version = ConfigureDefines.VERSION;
-		Comments = Catalog.GetString("Bless is a Hex Editor for Gtk#");
-		Website = "https://github.com/afrantzis/bless";
-		Logo =  new Gdk.Pixbuf(FileResourcePath.GetDataPath("bless-about.png"));
-	}
+	public const string MCS = "@MCS@";
 }
 
-} //end namespace
+} // end namespace

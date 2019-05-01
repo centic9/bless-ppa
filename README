@@ -1,6 +1,6 @@
-Bless - Gtk# Hex Editor v0.6.0
+Bless - Gtk# Hex Editor v0.6.1
 ==============================
-Copyright (c) 2004-2008, Alexandros Frantzis
+Copyright (c) 2004-2018, Alexandros Frantzis
 
 Thank you for using ( or at least trying out :) ) Bless!
 
@@ -50,7 +50,7 @@ Planned Features
 ------------------------------------
 
 More information, bug reports and the latest releases can be found at: 
-  http://home.gna.org/bless
+  https://github.com/afrantzis/bless
 
 I can be contacted at: alf82 [at] freemail [dot] gr.
 
@@ -113,7 +113,7 @@ Become root and type 'make install'.
 5. Running
 ----------
 If you chose to install the program, just type 'bless'. In any case you can  
-run the program by typing 'bless' in the 'bless-a.b.c' directory.
+run the program by typing './bless' in the 'bless-a.b.c' directory.
 Enjoy!
 
 ----------------
