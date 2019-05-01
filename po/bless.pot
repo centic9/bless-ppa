@@ -1,0 +1,715 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Alexandros Frantzis
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: alf82@freemail.gr\n"
+"POT-Creation-Date: 2008-08-14 14:45+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/bless.glade:84
+msgid "Available Layouts"
+msgstr ""
+
+#: data/bless.glade:106
+msgid "Preview"
+msgstr ""
+
+#: data/bless.glade:302
+msgid "ASCII Text:"
+msgstr ""
+
+#: data/bless.glade:321
+msgid "Show unsigned as hexadecimal"
+msgstr ""
+
+#: data/bless.glade:345
+msgid "Show little endian decoding"
+msgstr ""
+
+#: data/bless.glade:529
+msgid "Binary:"
+msgstr ""
+
+#: data/bless.glade:545
+msgid "Octal:"
+msgstr ""
+
+#: data/bless.glade:561
+msgid "Decimal:"
+msgstr ""
+
+#: data/bless.glade:577
+msgid "Hexadecimal:"
+msgstr ""
+
+#: data/bless.glade:591
+msgid "Float 64 bit:"
+msgstr ""
+
+#: data/bless.glade:608
+msgid "Float 32 bit:"
+msgstr ""
+
+#: data/bless.glade:625
+msgid "Unsigned 32 bit:"
+msgstr ""
+
+#: data/bless.glade:642
+msgid "Signed 32 bit:"
+msgstr ""
+
+#: data/bless.glade:657
+msgid "Unsigned 16 bit:"
+msgstr ""
+
+#: data/bless.glade:672
+msgid "Signed 16 bit:"
+msgstr ""
+
+#: data/bless.glade:687
+msgid "Unsigned 8 bit:"
+msgstr ""
+
+#: data/bless.glade:702
+msgid "Signed 8 bit:"
+msgstr ""
+
+#: data/bless.glade:727
+msgid "label4"
+msgstr ""
+
+#: data/bless.glade:764 src/gui/dialogs/ExportDialog.cs:126
+#: src/gui/dialogs/PreferencesDialog.cs:256
+msgid "Cancel"
+msgstr ""
+
+#: data/bless.glade:856 data/bless.glade:876 data/bless.glade:1877
+msgid ""
+"Hexadecimal\n"
+"Decimal\n"
+"Octal\n"
+"Binary\n"
+"Text"
+msgstr ""
+
+#: data/bless.glade:921
+msgid "Find Next"
+msgstr ""
+
+#: data/bless.glade:974 src/gui/dialogs/FileOverwriteAlert.cs:39
+msgid "Replace"
+msgstr ""
+
+#: data/bless.glade:1001 data/bless.glade:1016 data/bless.glade:1866
+msgid "as"
+msgstr ""
+
+#: data/bless.glade:1031
+msgid "Replace All"
+msgstr ""
+
+#: data/bless.glade:1078
+msgid "Find Previous"
+msgstr ""
+
+#: data/bless.glade:1132
+msgid "Replace with:"
+msgstr ""
+
+#: data/bless.glade:1146
+msgid "Search for:"
+msgstr ""
+
+#: data/bless.glade:1190
+msgid "Offset:"
+msgstr ""
+
+#: data/bless.glade:1241
+msgid "Go to Offset"
+msgstr ""
+
+#: data/bless.glade:1297
+msgid "Select range from:"
+msgstr ""
+
+#: data/bless.glade:1318
+msgid "to/±length"
+msgstr ""
+
+#: data/bless.glade:1368 src/gui/dialogs/ExportDialog.cs:127
+#: src/gui/dialogs/PreferencesDialog.cs:257
+msgid "Select"
+msgstr ""
+
+#: data/bless.glade:1516
+msgid "Export _pattern:"
+msgstr ""
+
+#: data/bless.glade:1561
+msgid "Export _type:"
+msgstr ""
+
+#: data/bless.glade:1574
+msgid "Export to _file:"
+msgstr ""
+
+#: data/bless.glade:1591
+msgid "<b>Range</b>"
+msgstr ""
+
+#: data/bless.glade:1604 data/bless.glade:1954 data/bless.glade:2100
+#: data/bless.glade:2233 data/bless.glade:2335 data/bless.glade:2453
+msgid "    "
+msgstr ""
+
+#: data/bless.glade:1613
+msgid "_Whole file"
+msgstr ""
+
+#: data/bless.glade:1627
+msgid "Current _selection"
+msgstr ""
+
+#: data/bless.glade:1645
+msgid "F_rom"
+msgstr ""
+
+#: data/bless.glade:1667
+msgid "to"
+msgstr ""
+
+#: data/bless.glade:1711 data/bless.glade:1801
+msgid "gtk-cancel"
+msgstr ""
+
+#: data/bless.glade:1741
+msgid "gtk-close"
+msgstr ""
+
+#: data/bless.glade:1762
+msgid "_Export"
+msgstr ""
+
+#: data/bless.glade:1841
+msgid ""
+"AND\n"
+"OR\n"
+"XOR\n"
+"NOT"
+msgstr ""
+
+#: data/bless.glade:1890
+msgid "gtk-execute"
+msgstr ""
+
+#: data/bless.glade:1940
+msgid "<b>Default Layout</b>"
+msgstr ""
+
+#: data/bless.glade:1972
+msgid "Layout _File:"
+msgstr ""
+
+#: data/bless.glade:2017
+msgid "_Select Layout"
+msgstr ""
+
+#: data/bless.glade:2047
+msgid "Use layout of currently active _tab if any"
+msgstr ""
+
+#: data/bless.glade:2086
+msgid "<b>Misc</b>"
+msgstr ""
+
+#: data/bless.glade:2150
+msgid "Temporary Directory:"
+msgstr ""
+
+#: data/bless.glade:2161
+msgid "Default _edit mode:"
+msgstr ""
+
+#: data/bless.glade:2172
+msgid ""
+"Insert\n"
+"Overwrite"
+msgstr ""
+
+#: data/bless.glade:2216
+msgid "_Load previous session on startup"
+msgstr ""
+
+#: data/bless.glade:2249
+msgid "_Ask before loading session "
+msgstr ""
+
+#: data/bless.glade:2264
+msgid "Remember cursor _position"
+msgstr ""
+
+#: data/bless.glade:2280
+msgid "Remember _window geometry"
+msgstr ""
+
+#: data/bless.glade:2321
+msgid "<b>Undo Limit</b>"
+msgstr ""
+
+#: data/bless.glade:2354
+msgid "_Limit to"
+msgstr ""
+
+#: data/bless.glade:2382
+msgid "actions"
+msgstr ""
+
+#: data/bless.glade:2400
+msgid "_Unlimited Undo"
+msgstr ""
+
+#: data/bless.glade:2439
+msgid "<b>Keep Undo History After Save</b>"
+msgstr ""
+
+#: data/bless.glade:2468
+msgid "Always"
+msgstr ""
+
+#: data/bless.glade:2477
+msgid "What fits in main memory"
+msgstr ""
+
+#: data/bless.glade:2491
+msgid "Never"
+msgstr ""
+
+#: src/buffers/SaveAsOperation.cs:87
+#, csharp-format
+msgid "Saving '{0}'"
+msgstr ""
+
+#: src/buffers/SaveAsOperation.cs:106 src/buffers/SaveOperation.cs:117
+#, csharp-format
+msgid "There is not enough free space on the device to save file '{0}'."
+msgstr ""
+
+#: src/buffers/SaveOperation.cs:95
+#, csharp-format
+msgid "Moving '{0}' to '{1}'"
+msgstr ""
+
+#: src/gui/FileChangedBar.cs:46
+msgid ""
+"This file has been changed on disk. You may choose to ignore the changes but "
+"reloading is the only safe option."
+msgstr ""
+
+#: src/gui/FileChangedBar.cs:50
+msgid "Ignore"
+msgstr ""
+
+#: src/gui/FileChangedBar.cs:53
+msgid "Reload"
+msgstr ""
+
+#: src/gui/FileChangedBar.cs:64
+msgid "Are you sure you want to ignore the changes?"
+msgstr ""
+
+#: src/gui/FileChangedBar.cs:64
+msgid ""
+"Due to the way Bless handles files, ignoring these changes may corrupt your "
+"data."
+msgstr ""
+
+#: src/gui/FileService.cs:68
+#, csharp-format
+msgid "Error loading layout '{0}'. Loading default layout instead."
+msgstr ""
+
+#: src/gui/FileService.cs:230 src/gui/FileService.cs:251
+#: src/gui/FileService.cs:259 src/gui/FileService.cs:265
+#: src/gui/FileService.cs:271 src/gui/FileService.cs:277
+#, csharp-format
+msgid "Error opening file '{0}'"
+msgstr ""
+
+#: src/gui/FileService.cs:245
+#, csharp-format
+msgid "Loaded file '{0}'"
+msgstr ""
+
+#: src/gui/FileService.cs:252
+msgid "You do not have read permissions for the file you requested."
+msgstr ""
+
+#: src/gui/FileService.cs:260
+msgid "The file you requested does not exist."
+msgstr ""
+
+#: src/gui/FileService.cs:307
+msgid "Save File As"
+msgstr ""
+
+#: src/gui/FileService.cs:363 src/gui/FileService.cs:414
+#: src/gui/FileService.cs:453
+#, csharp-format
+msgid "Error saving file '{0}'"
+msgstr ""
+
+#: src/gui/FileService.cs:376
+#, csharp-format
+msgid "Saving file '{0}' as '{1}'"
+msgstr ""
+
+#: src/gui/FileService.cs:378
+#, csharp-format
+msgid "Saving file '{0}'"
+msgstr ""
+
+#: src/gui/FileService.cs:419 src/gui/FileService.cs:460
+#, csharp-format
+msgid "The file '{0}' has NOT been saved"
+msgstr ""
+
+#: src/gui/FileService.cs:436
+#, csharp-format
+msgid "The file has been saved as '{0}'"
+msgstr ""
+
+#: src/gui/FileService.cs:438
+#, csharp-format
+msgid "The file '{0}' has been saved"
+msgstr ""
+
+#: src/gui/MainWindow.cs:74
+msgid "_File"
+msgstr ""
+
+#: src/gui/MainWindow.cs:75
+msgid "_Edit"
+msgstr ""
+
+#: src/gui/MainWindow.cs:76
+msgid "_View"
+msgstr ""
+
+#: src/gui/MainWindow.cs:77
+msgid "_Search"
+msgstr ""
+
+#: src/gui/MainWindow.cs:78
+msgid "_Tools"
+msgstr ""
+
+#: src/gui/MainWindow.cs:79
+msgid "_Help"
+msgstr ""
+
+#: src/gui/MainWindow.cs:121
+msgid "Cannot create user configuration directory"
+msgstr ""
+
+#: src/gui/MainWindow.cs:121
+msgid ""
+"\n"
+"\n"
+"Some features of Bless may not work properly."
+msgstr ""
+
+#: src/gui/MainWindow.cs:229
+msgid "Do you want to load your previous session?"
+msgstr ""
+
+#: src/gui/dialogs/AboutDialog.cs:36
+msgid "Copyright 2004 - 2008 Alexandros Frantzis"
+msgstr ""
+
+#: src/gui/dialogs/AboutDialog.cs:39
+msgid "Bless is a Hex Editor for Gtk#"
+msgstr ""
+
+#: src/gui/dialogs/ExportDialog.cs:61
+msgid "Export Bytes"
+msgstr ""
+
+#: src/gui/dialogs/ExportDialog.cs:91
+msgid "Export"
+msgstr ""
+
+#: src/gui/dialogs/ExportDialog.cs:126
+msgid "Select file"
+msgstr ""
+
+#: src/gui/dialogs/ExportDialog.cs:272
+#, csharp-format
+msgid "Exported data to '{0}'"
+msgstr ""
+
+#: src/gui/dialogs/ExportDialog.cs:278
+msgid "Export Pattern Error"
+msgstr ""
+
+#: src/gui/dialogs/ExportDialog.cs:280
+msgid "Exporting Error"
+msgstr ""
+
+#: src/gui/dialogs/ExportDialog.cs:332
+msgid "Error in custom range"
+msgstr ""
+
+#: src/gui/dialogs/ExportDialog.cs:345
+msgid "Error in range"
+msgstr ""
+
+#: src/gui/dialogs/ExportDialog.cs:345
+msgid "Range is out of file's limits"
+msgstr ""
+
+#: src/gui/dialogs/ExportDialog.cs:367
+msgid "Error saving to file"
+msgstr ""
+
+#: src/gui/dialogs/FileOverwriteAlert.cs:30
+#, csharp-format
+msgid "A file named '{0}' already exists"
+msgstr ""
+
+#: src/gui/dialogs/FileOverwriteAlert.cs:31
+msgid "Do you want to replace it with the one you are saving?"
+msgstr ""
+
+#: src/gui/dialogs/LayoutSelectionDialog.cs:53
+msgid "Select Layout"
+msgstr ""
+
+#: src/gui/dialogs/LayoutSelectionDialog.cs:93
+msgid "System-wide Layouts"
+msgstr ""
+
+#: src/gui/dialogs/LayoutSelectionDialog.cs:104
+msgid "User Layouts"
+msgstr ""
+
+#: src/gui/dialogs/LayoutSelectionDialog.cs:147
+#, csharp-format
+msgid "Error parsing layout file '{0}'"
+msgstr ""
+
+#: src/gui/dialogs/PreferencesDialog.cs:49
+msgid "Bless Preferences"
+msgstr ""
+
+#: src/gui/dialogs/PreferencesDialog.cs:74
+msgid "General"
+msgstr ""
+
+#: src/gui/dialogs/PreferencesDialog.cs:75
+msgid "Undo"
+msgstr ""
+
+#: src/gui/dialogs/PreferencesDialog.cs:76
+msgid "Session"
+msgstr ""
+
+#: src/gui/dialogs/PreferencesDialog.cs:78
+msgid "Plugins"
+msgstr ""
+
+#: src/gui/dialogs/PreferencesDialog.cs:256
+msgid "Select Directory"
+msgstr ""
+
+#: src/gui/dialogs/RevertConfirmationAlert.cs:32
+#, csharp-format
+msgid "Revert file '{0}' to its last saved state?"
+msgstr ""
+
+#: src/gui/dialogs/RevertConfirmationAlert.cs:33
+msgid "If you revert, all changes made since the last save will be lost."
+msgstr ""
+
+#: src/gui/dialogs/SaveConfirmationAlert.cs:31
+#, csharp-format
+msgid "Save changes to file '{0}' before closing?"
+msgstr ""
+
+#: src/gui/dialogs/SaveConfirmationAlert.cs:32
+#: src/gui/dialogs/SaveConfirmationMultiAlert.cs:43
+msgid "If you don't save, all changes made since the last save will be lost."
+msgstr ""
+
+#: src/gui/dialogs/SaveConfirmationAlert.cs:36
+#: src/gui/dialogs/SaveConfirmationMultiAlert.cs:60
+msgid "Close without Saving"
+msgstr ""
+
+#: src/gui/dialogs/SaveConfirmationMultiAlert.cs:42
+#, csharp-format
+msgid "There are {0} files with unsaved changes. Save changes before closing?"
+msgstr ""
+
+#: src/gui/dialogs/SaveConfirmationMultiAlert.cs:49
+msgid ""
+"\n"
+"Select the files you want to save:\n"
+msgstr ""
+
+#: src/gui/plugins/ConversionTablePlugin.cs:82
+msgid "Conversion Table"
+msgstr ""
+
+#: src/gui/plugins/FileExportPlugin.cs:94
+msgid "_Export..."
+msgstr ""
+
+#: src/gui/plugins/FileOperationsPlugin.cs:189
+msgid "Open File(s)"
+msgstr ""
+
+#: src/gui/plugins/FileOperationsPlugin.cs:243
+#, csharp-format
+msgid "The file '{0}' cannot be found. Perhaps it has been recently deleted."
+msgstr ""
+
+#: src/gui/plugins/FileOperationsPlugin.cs:244
+msgid "Error reverting file"
+msgstr ""
+
+#: src/gui/plugins/FindReplacePlugin.cs:153
+msgid "Find _Next"
+msgstr ""
+
+#: src/gui/plugins/FindReplacePlugin.cs:155
+msgid "Find _Previous"
+msgstr ""
+
+#: src/gui/plugins/FindReplacePlugin.cs:216
+#: src/gui/plugins/FindReplacePlugin.cs:234
+#: src/gui/plugins/FindReplacePlugin.cs:563
+msgid "The pattern you requested was not found."
+msgstr ""
+
+#: src/gui/plugins/FindReplacePlugin.cs:216
+msgid "End of file reached."
+msgstr ""
+
+#: src/gui/plugins/FindReplacePlugin.cs:234
+#: src/gui/plugins/FindReplacePlugin.cs:563
+msgid "Beginning of file reached."
+msgstr ""
+
+#: src/gui/plugins/FindReplacePlugin.cs:473
+msgid ""
+"Strings representing numbers cannot consist of whitespace characters only."
+msgstr ""
+
+#: src/gui/plugins/FindReplacePlugin.cs:482
+msgid "Invalid Search Pattern"
+msgstr ""
+
+#: src/gui/plugins/GotoOffsetPlugin.cs:78
+msgid "_Goto Offset"
+msgstr ""
+
+#: src/gui/plugins/GotoOffsetPlugin.cs:181
+msgid "Invalid Offset"
+msgstr ""
+
+#: src/gui/plugins/GotoOffsetPlugin.cs:181
+msgid "The offset you specified is outside the file's limits."
+msgstr ""
+
+#: src/gui/plugins/GotoOffsetPlugin.cs:191
+msgid "Error in Offset Format"
+msgstr ""
+
+#: src/gui/plugins/HelpOperationsPlugin.cs:68
+msgid "_Contents"
+msgstr ""
+
+#: src/gui/plugins/HelpOperationsPlugin.cs:70
+msgid "_About"
+msgstr ""
+
+#: src/gui/plugins/InfobarPlugin.cs:97
+msgid "Show"
+msgstr ""
+
+#: src/gui/plugins/InfobarPlugin.cs:99
+msgid "Offset"
+msgstr ""
+
+#: src/gui/plugins/InfobarPlugin.cs:101
+msgid "Selection"
+msgstr ""
+
+#: src/gui/plugins/InfobarPlugin.cs:103
+msgid "Overwrite"
+msgstr ""
+
+#: src/gui/plugins/InfobarPlugin.cs:414
+#, csharp-format
+msgid "Offset: {0} / {1}"
+msgstr ""
+
+#: src/gui/plugins/InfobarPlugin.cs:437 src/gui/plugins/InfobarPlugin.cs:478
+msgid "Selection: None"
+msgstr ""
+
+#: src/gui/plugins/InfobarPlugin.cs:443
+#, csharp-format
+msgid "Selection: {0} to {1} ({2} bytes)"
+msgstr ""
+
+#: src/gui/plugins/InfobarPlugin.cs:475
+msgid "Offset: -"
+msgstr ""
+
+#: src/gui/plugins/SelectLayoutPlugin.cs:70
+msgid "_Layouts..."
+msgstr ""
+
+#: src/gui/plugins/SelectRangePlugin.cs:81
+msgid "Select _All"
+msgstr ""
+
+#: src/gui/plugins/SelectRangePlugin.cs:83
+msgid "_Select Range"
+msgstr ""
+
+#: src/gui/plugins/SelectRangePlugin.cs:222
+msgid "Error in From Offset Format"
+msgstr ""
+
+#: src/gui/plugins/SelectRangePlugin.cs:241
+msgid "Error in To Offset Format"
+msgstr ""
+
+#: src/gui/plugins/SelectRangePlugin.cs:261
+msgid "Invalid Range"
+msgstr ""
+
+#: src/gui/plugins/SelectRangePlugin.cs:261
+msgid "The range you specified is outside the file's limits."
+msgstr ""
+
+#: src/util/BaseConverter.cs:96
+#, csharp-format
+msgid "Character '{0}' is not valid in a number of base {1}."
+msgstr ""
+
+#: src/util/BaseConverter.cs:130
+msgid "The string to parse is empty."
+msgstr ""
