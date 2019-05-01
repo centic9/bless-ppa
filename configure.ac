@@ -1,6 +1,6 @@
 # -*- Autoconf -*-
 AC_PREREQ(2.59)
-AC_INIT([bless], [0.6.0], [alf82@freemail.gr])
+AC_INIT([bless], [0.6.1], [alf82@freemail.gr])
 AC_CONFIG_SRCDIR([src/buffers/ByteBuffer.cs])
 AM_INIT_AUTOMAKE
 
@@ -24,11 +24,10 @@ if test "x$PKG_CONFIG" = "xno"; then
 fi
 	
 # C# compiler
-AC_PATH_PROG(MCS, gmcs, no)
+AC_PATH_PROG(MCS, mcs, no)
 
-CS="gmcs C#"
-if test "x$MCS" = "xno"  ; then
-	AC_MSG_ERROR([No $CS compiler found])
+if test "x$MCS" = "xno"; then
+	AC_MSG_ERROR([No mono Csharp compiler found])
 fi
 
 # Mono runtime
@@ -94,6 +93,7 @@ AM_CONDITIONAL(ENABLE_DEBUG, [test "$DEBUG" = "yes"])
 
 AC_CONFIG_FILES([Makefile po/Makefile.in
 				 builder/Makefile
+				 builder/ConfigureDefines.cs
 				 bin/Makefile
 				 data/Makefile
 				 data/bless.desktop
