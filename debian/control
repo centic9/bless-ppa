@@ -10,7 +10,7 @@ Build-Depends-Indep: cli-common-dev (>= 0.4.4),
                      libglib2.0-cil-dev,
                      libgtk2.0-cil-dev,
                      libglade2.0-cil-dev
-Standards-Version: 4.2.1
+Standards-Version: 4.3.0
 Homepage: https://github.com/afrantzis/bless
 Vcs-Git: https://salsa.debian.org/dotnet-team/bless.git
 Vcs-Browser: https://salsa.debian.org/dotnet-team/bless
