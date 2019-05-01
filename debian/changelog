@@ -1,3 +1,12 @@
+bless (0.6.2-0ubuntu0~ppa1) bionic; urgency=medium
+
+  * Update to latest upstream version
+  * Update watch-file to new location at https://github.com/afrantzis/bless
+  * Update homepage in control
+  * Fix a lintian warning
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Wed, 01 May 2019 10:11:39 +0200
+
 bless (0.6.0-5.1) unstable; urgency=medium
 
   * Don't depend on rarian. Thanks Jeremy Bicha for the patch.

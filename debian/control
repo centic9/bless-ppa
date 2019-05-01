@@ -11,14 +11,14 @@ Build-Depends-Indep: cli-common-dev (>= 0.4.4),
                      libgtk2.0-cil-dev,
                      libglade2.0-cil-dev
 Standards-Version: 4.2.1
-Homepage: http://home.gna.org/bless/
+Homepage: https://github.com/afrantzis/bless
 Vcs-Git: https://salsa.debian.org/dotnet-team/bless.git
 Vcs-Browser: https://salsa.debian.org/dotnet-team/bless
 
 Package: bless
 Architecture: all
 Depends: ${cli:Depends}, ${misc:Depends}
-Description: A full featured hexadecimal editor
+Description: Full featured hexadecimal editor
  Bless is a binary (hex) editor, a program that enables you to edit files
  as a sequence of bytes written for the GNOME Desktop. Main features are:
  .
