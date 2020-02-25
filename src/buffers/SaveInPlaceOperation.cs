@@ -89,11 +89,6 @@ public class SaveInPlaceOperation : ThreadedAsyncOperation, ISaveState
 	protected override void DoOperation()
 	{
 		stageReached = SaveInPlaceStage.BeforeClose;
-
-		// Open the file for editing.
-		// Do this in the beginning to figure out if we have all the
-		// required permissions before invalidating the byteBuffer.
-		fs = new FileStream(savePath, FileMode.Open, FileAccess.Write, FileShare.ReadWrite);
 		
 		// hold a reference to the bytebuffer's segment collection
 		// because it is lost when the file is closed
@@ -112,6 +107,9 @@ public class SaveInPlaceOperation : ThreadedAsyncOperation, ISaveState
 				byteBuffer.FileOperationsAllowed = false;
 			}
 		}
+		
+		// Open the file for editing
+		fs = new FileStream(savePath, FileMode.Open, FileAccess.Write);
 		
 		stageReached = SaveInPlaceStage.BeforeWrite;
 		

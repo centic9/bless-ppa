@@ -1,0 +1,63 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Exporting Data</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Bless 0.6.0 Manual"><link rel="up" href="ch04.html" title="Chapter 4. Using Bless"><link rel="prev" href="ch04s04.html" title="Searching and Replacing in files"><link rel="next" href="ch04s06.html" title="Performing bitwise operations"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Exporting Data</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04s04.html">Prev</a> </td><th width="60%" align="center">Chapter 4. Using <span class="application">Bless</span></th><td width="20%" align="right"> <a accesskey="n" href="ch04s06.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="bless-usage-export"></a>Exporting Data</h2></div></div></div><p>
+			<span class="application">Bless</span> features an advanced and customizable export system. It can currently export data to text or 
+			html files.
+		</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="bless-usage-export-pattern"></a>Export Patterns</h3></div></div></div><p>
+				The exporting is based on an export pattern. The pattern consists of string literals and special command strings. 
+				The literals are printed in the output file as they are whereas the command strings tell the exporter to 
+				do something. Commands strings are enclosed in '%'s and specify the command and its parameters. The command 
+				is specified by an uppercase letter and the parameters by lowercase letters. Each letter (whether it corresponds
+				to a command or a parameter) may be followed by an argument enclosed in double quotes '"'.
+			</p><div class="informaltable"><table border="1"><colgroup><col><col><col></colgroup><thead><tr><th>Command</th><th>Description</th><th>Parameters [default]</th></tr></thead><tbody><tr><td>Export (E)</td><td>Writes actual data.</td><td>
+							<table class="simplelist" border="0" summary="Simple list"><tr><td>
+									<p>E: the number of bytes to export ["1"]</p>
+								</td></tr><tr><td>
+									<p>p: the prefix to write before each byte [""]</p>
+								</td></tr><tr><td>
+									<p>s: the suffix to write after each byte [""]</p>
+								</td></tr><tr><td>
+									<p>x: the separator to use between bytes [""]</p>
+								</td></tr><tr><td>
+									<p>e: the string to use for not printed bytes (due to alignment) [" "]</p>
+								</td></tr><tr><td>
+									<p>t: the type to export the byte(s) to (see below) ["H"]</p>
+								</td></tr></table>
+						</td></tr><tr><td>Ignore (I)</td><td>Ignores data.</td><td>
+							<table class="simplelist" border="0" summary="Simple list"><tr><td>
+									<p>I: the number of bytes to ignore ["1"]</p>
+								</td></tr></table>
+						</td></tr><tr><td>Offset (O)</td><td>Writes the current offset.</td><td>
+							<table class="simplelist" border="0" summary="Simple list"><tr><td>
+									<p>O: the number of digits to use for writing the offset ["8"]</p>
+								</td></tr><tr><td>
+									<p>t: the type to write the offset in (see below) ["H"]</p>
+								</td></tr></table>
+						</td></tr></tbody></table></div><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Export Type</th><th>Description</th></tr></thead><tbody><tr><td>H</td><td>Hexadecimal with uppercase characters</td></tr><tr><td>h</td><td>Hexadecimal with lowercase characters</td></tr><tr><td>D</td><td>Decimal</td></tr><tr><td>O</td><td>Octal</td></tr><tr><td>B</td><td>Binary</td></tr><tr><td>A</td><td>Ascii</td></tr></tbody></table></div><p>
+				Command strings can be grouped together with square brackets '[',']'. After such a group
+				of commands is executed the pointer which keeps track of the next byte to export is reset
+				to the position it had just before the group was executed.
+			</p><p>
+				Some sample patterns and their output will make things much clearer:
+				</p><div class="variablelist"><dl><dt><span class="term">%O"4"%: %E"4"p"0x"x" "% - %E"4"p"0x"x" "%\n</span></dt><dd><p>
+								</p><pre class="screen">0000: 0x00 0x01 0x02 0x03 - 0x04 0x05 0x06 0x07
+0008: 0x08 0x09 0x0a 0x0b - 0x0c 0x0d 0x0e 0x0f
+0010: 0x10 0x11 0x12 0x13 - 0x14 0x15 0x16 0x17
+0018: 0x18 0x19 0x10 0x1a - 0x1b 0x1c 0x1d 0x1e
+0020: 0x1f                -                    </pre><p> 
+							</p></dd><dt><span class="term">[%E"2"% %I"2"% %E"2"% %I"2"%] %I"2"% %E"2"% %I"2"% %E"2"%\n</span></dt><dd><p>
+							</p><pre class="screen">0001  0405   0203  0607
+0809  0c0d   0a0b  0e0f
+1011  1415   1213  1617
+1819  1b1c   101a  1d1e
+1f
+</pre><p> 
+							</p></dd></dl></div><p>
+			</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="bless-usage-export-dialog"></a>Export Dialog</h3></div></div></div><div class="figure"><a name="id2903972"></a><p class="title"><b>Figure 4.9. Export Dialog</b></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="figures/bless_export_dialog.png" alt="Export Dialog"></div></div></div></div><br class="figure-break"><div class="variablelist"><p class="title"><b>Export Dialog</b></p><dl><dt><span class="term">Export to file</span></dt><dd><p>
+							The name of the file to export the data to.
+						</p></dd><dt><span class="term">Export type</span></dt><dd><p>
+							The type of file to export to. New types can be added with plugins.
+						</p></dd><dt><span class="term">Export pattern</span></dt><dd><p>
+							The pattern to use when exporting the file (see <a class="xref" href="ch04s05.html#bless-usage-export-pattern" title="Export Patterns">the section called &#8220;Export Patterns&#8221;</a>). Use the save and delete buttons
+							next to the pattern entry to manage the saved patterns.
+						</p></dd><dt><span class="term">Range</span></dt><dd><p>
+							The range of data to export.
+						</p></dd></dl></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04s04.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch04.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch04s06.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Searching and Replacing in files </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Performing bitwise operations</td></tr></table></div></body></html>

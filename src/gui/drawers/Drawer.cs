@@ -30,24 +30,15 @@ namespace Bless.Gui.Drawers {
 ///<summary>Fast font drawing class</summary>
 public abstract class Drawer {
 
-	public class Color {
-		public Color(Gdk.Color color)
-		{
-			this.GdkColor = color;
-		}
-
-		public Gdk.Color GdkColor;
-	}
-
 	public class Information {
 		public string FontName;
 		public string FontLanguage;
 
-		public Drawer.Color[,] fgNormal;
-		public Drawer.Color[,] bgNormal;
+		public Gdk.Color[,] fgNormal;
+		public Gdk.Color[,] bgNormal;
 
-		public Drawer.Color[,] fgHighlight;
-		public Drawer.Color[,] bgHighlight;
+		public Gdk.Color[,] fgHighlight;
+		public Gdk.Color[,] bgHighlight;
 
 		public bool Uppercase;
 
@@ -56,42 +47,39 @@ public abstract class Drawer {
 			FontName = "Courier 12";
 			FontLanguage = "utf-8";
 
-			fgNormal = new Drawer.Color[2, 2];
-			bgNormal = new Drawer.Color[2, 2];
-			
-			fgHighlight = new Drawer.Color[2, (int)HighlightType.Sentinel];
-			bgHighlight = new Drawer.Color[2, (int)HighlightType.Sentinel];
+			fgNormal = new Gdk.Color[2, 2];
+			bgNormal = new Gdk.Color[2, 2];
 
-			for (int i = 0; i < 2; i++) {
-				fgNormal[0, i] = new Drawer.Color(Gdk.Color.Zero);
-				fgNormal[1, i] = new Drawer.Color(Gdk.Color.Zero);
-				bgNormal[0, i] = new Drawer.Color(Gdk.Color.Zero);
-				bgNormal[1, i] = new Drawer.Color(Gdk.Color.Zero);
-			}
+			fgHighlight = new Gdk.Color[2, (int)HighlightType.Sentinel];
+			bgHighlight = new Gdk.Color[2, (int)HighlightType.Sentinel];
 
 			// initialize default colors
-			Gdk.Color.Parse("black", ref fgNormal[(int)RowType.Even, (int)ColumnType.Even].GdkColor);
-			Gdk.Color.Parse("white", ref bgNormal[(int)RowType.Even, (int)ColumnType.Even].GdkColor);
+			Gdk.Color.Parse("black", ref fgNormal[(int)RowType.Even, (int)ColumnType.Even]);
+			Gdk.Color.Parse("white", ref bgNormal[(int)RowType.Even, (int)ColumnType.Even]);
 
-			Gdk.Color.Parse("blue", ref fgNormal[(int)RowType.Even, (int)ColumnType.Odd].GdkColor);
-			Gdk.Color.Parse("white", ref bgNormal[(int)RowType.Even, (int)ColumnType.Odd].GdkColor);
+			Gdk.Color.Parse("blue", ref fgNormal[(int)RowType.Even, (int)ColumnType.Odd]);
+			Gdk.Color.Parse("white", ref bgNormal[(int)RowType.Even, (int)ColumnType.Odd]);
 
-			Gdk.Color.Parse("black", ref fgNormal[(int)RowType.Odd, (int)ColumnType.Even].GdkColor);
-			Gdk.Color.Parse("white", ref bgNormal[(int)RowType.Odd, (int)ColumnType.Even].GdkColor);
+			Gdk.Color.Parse("black", ref fgNormal[(int)RowType.Odd, (int)ColumnType.Even]);
+			Gdk.Color.Parse("white", ref bgNormal[(int)RowType.Odd, (int)ColumnType.Even]);
 
-			Gdk.Color.Parse("blue", ref fgNormal[(int)RowType.Odd, (int)ColumnType.Odd].GdkColor);
-			Gdk.Color.Parse("white", ref bgNormal[(int)RowType.Odd, (int)ColumnType.Odd].GdkColor);
+			Gdk.Color.Parse("blue", ref fgNormal[(int)RowType.Odd, (int)ColumnType.Odd]);
+			Gdk.Color.Parse("white", ref bgNormal[(int)RowType.Odd, (int)ColumnType.Odd]);
 
 			// leave unspecified...
 			// if not specified by user they will
 			// be set up using theme defaults
-			for (int i = 0; i < (int)HighlightType.Sentinel; i++) {
-				fgHighlight[(int)RowType.Even, i] = null;
-				bgHighlight[(int)RowType.Even, i] = null;
+			fgHighlight[(int)RowType.Even, (int)HighlightType.Selection] = Gdk.Color.Zero;
+			bgHighlight[(int)RowType.Even, (int)HighlightType.Selection] = Gdk.Color.Zero;
 
-				fgHighlight[(int)RowType.Odd, i] = null;
-				bgHighlight[(int)RowType.Odd, i] = null;
-			}
+			fgHighlight[(int)RowType.Odd, (int)HighlightType.Selection] = Gdk.Color.Zero;
+			bgHighlight[(int)RowType.Odd, (int)HighlightType.Selection] = Gdk.Color.Zero;
+
+			fgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch] = Gdk.Color.Zero;
+			bgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch] = Gdk.Color.Zero;
+
+			fgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch] = Gdk.Color.Zero;
+			bgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch] = Gdk.Color.Zero;
 
 			Uppercase = false;
 		}
@@ -110,30 +98,30 @@ public abstract class Drawer {
 			patMatchFg = MakeColorDarker(selFg, 0.4);
 
 			// Selection
-			if (fgHighlight[(int)RowType.Even, (int)HighlightType.Selection] == null)
-				fgHighlight[(int)RowType.Even, (int)HighlightType.Selection] = new Drawer.Color(selFg);
+			if (fgHighlight[(int)RowType.Even, (int)HighlightType.Selection].Equals(Gdk.Color.Zero))
+				fgHighlight[(int)RowType.Even, (int)HighlightType.Selection] = selFg;
 
-			if (bgHighlight[(int)RowType.Even, (int)HighlightType.Selection] == null)
-				bgHighlight[(int)RowType.Even, (int)HighlightType.Selection] = new Drawer.Color(selBg);
+			if (bgHighlight[(int)RowType.Even, (int)HighlightType.Selection].Equals(Gdk.Color.Zero))
+				bgHighlight[(int)RowType.Even, (int)HighlightType.Selection] = selBg;
 
-			if (fgHighlight[(int)RowType.Odd, (int)HighlightType.Selection] == null)
-				fgHighlight[(int)RowType.Odd, (int)HighlightType.Selection] = new Drawer.Color(selFg);
+			if (fgHighlight[(int)RowType.Odd, (int)HighlightType.Selection].Equals(Gdk.Color.Zero))
+				fgHighlight[(int)RowType.Odd, (int)HighlightType.Selection] = selFg;
 
-			if (bgHighlight[(int)RowType.Odd, (int)HighlightType.Selection] == null)
-				bgHighlight[(int)RowType.Odd, (int)HighlightType.Selection] = new Drawer.Color(selBg);
+			if (bgHighlight[(int)RowType.Odd, (int)HighlightType.Selection].Equals(Gdk.Color.Zero))
+				bgHighlight[(int)RowType.Odd, (int)HighlightType.Selection] = selBg;
 
 			// Secondary selection
-			if (fgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch] == null)
-				fgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch] = new Drawer.Color(patMatchFg);
+			if (fgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch].Equals(Gdk.Color.Zero))
+				fgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch] = patMatchFg;
 
-			if (bgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch] == null)
-				bgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch] = new Drawer.Color(patMatchBg);
+			if (bgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch].Equals(Gdk.Color.Zero))
+				bgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch] = patMatchBg;
 
-			if (fgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch] == null)
-				fgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch] = new Drawer.Color(patMatchFg);
+			if (fgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch].Equals(Gdk.Color.Zero))
+				fgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch] = patMatchFg;
 
-			if (bgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch] == null)
-				bgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch] = new Drawer.Color(patMatchBg);
+			if (bgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch].Equals(Gdk.Color.Zero))
+				bgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch] = patMatchBg;
 		}
 
 		// Make a color lighter while keeping its hue
@@ -218,8 +206,8 @@ public abstract class Drawer {
 		pixmapsNormal = new Gdk.Pixmap[2,2];
 		pixmapsHighlight = new Gdk.Pixmap[2,(int)HighlightType.Sentinel];
 
-		Drawer.Color colorFg;
-		Drawer.Color colorBg;
+		Gdk.Color colorFg = new Gdk.Color();
+		Gdk.Color colorBg = new Gdk.Color();
 
 		//even rows
 		colorFg = info.fgNormal[(int)RowType.Even, (int)ColumnType.Even];
@@ -266,40 +254,40 @@ public abstract class Drawer {
 			for (int j = 0; j < (int)Drawer.HighlightType.Sentinel; j++)
 				backGC[i,j] = new Gdk.GC(widget.GdkWindow);
 
-		Drawer.Color col;
+		Gdk.Color col;
 
 		// normal
 		col = info.bgNormal[(int)RowType.Even, (int)ColumnType.Even];
-		backGC[(int)RowType.Even, (int)HighlightType.Normal].RgbFgColor = col.GdkColor;
+		backGC[(int)RowType.Even, (int)HighlightType.Normal].RgbFgColor = col;
 
 		col = info.bgNormal[(int)RowType.Odd, (int)ColumnType.Even];
-		backGC[(int)RowType.Odd, (int)HighlightType.Normal].RgbFgColor = col.GdkColor;
+		backGC[(int)RowType.Odd, (int)HighlightType.Normal].RgbFgColor = col;
 
 		// selection
 		col = info.bgHighlight[(int)RowType.Even, (int)HighlightType.Selection];
-		backGC[(int)RowType.Even, (int)HighlightType.Selection].RgbFgColor = col.GdkColor;
+		backGC[(int)RowType.Even, (int)HighlightType.Selection].RgbFgColor = col;
 
 		col = info.bgHighlight[(int)RowType.Odd, (int)HighlightType.Selection];
-		backGC[(int)RowType.Odd, (int)HighlightType.Selection].RgbFgColor = col.GdkColor;
+		backGC[(int)RowType.Odd, (int)HighlightType.Selection].RgbFgColor = col;
 
 		// secondary selection
 		col = info.bgHighlight[(int)RowType.Even, (int)HighlightType.PatternMatch];
-		backGC[(int)RowType.Even, (int)HighlightType.PatternMatch].RgbFgColor = col.GdkColor;
+		backGC[(int)RowType.Even, (int)HighlightType.PatternMatch].RgbFgColor = col;
 
 		col = info.bgHighlight[(int)RowType.Odd, (int)HighlightType.PatternMatch];
-		backGC[(int)RowType.Odd, (int)HighlightType.PatternMatch].RgbFgColor = col.GdkColor;
+		backGC[(int)RowType.Odd, (int)HighlightType.PatternMatch].RgbFgColor = col;
 	}
 
 	///<summary>
 	/// Wrapper around create to avoid creating pixmaps we already have
 	///</summary>
-	private Gdk.Pixmap CreateWrapper(Drawer.Color fg, Drawer.Color bg)
+	private Gdk.Pixmap CreateWrapper(Gdk.Color fg, Gdk.Color bg)
 	{
-		string id = PixmapManager.Instance.GetPixmapId(this.GetType(), info, fg.GdkColor, bg.GdkColor);
+		string id = PixmapManager.Instance.GetPixmapId(this.GetType(), info, fg, bg);
 
 		Gdk.Pixmap pix = PixmapManager.Instance.GetPixmap(id);
 		if (pix == null) {
-			pix = Create(fg.GdkColor, bg.GdkColor); // can be null for DummyDrawer
+			pix = Create(fg, bg); // can be null for DummyDrawer
 			if (pix != null) {
 				PixmapManager.Instance.AddPixmap(id, pix);
 				PixmapManager.Instance.ReferencePixmap(id);

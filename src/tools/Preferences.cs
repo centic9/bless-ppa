@@ -127,26 +127,26 @@ public class Preferences
 	///</summary>
 	public void Save(string path)
 	{
-		using (XmlTextWriter xml = new XmlTextWriter(path, null)) {
-			xml.Formatting = Formatting.Indented;
-			xml.Indentation = 1;
-			xml.IndentChar = '\t';
+		XmlTextWriter xml = new XmlTextWriter(path, null);
+		xml.Formatting = Formatting.Indented;
+		xml.Indentation = 1;
+		xml.IndentChar = '\t';
 
-			xml.WriteStartDocument();
-			xml.WriteStartElement(null, "preferences", null);
+		xml.WriteStartElement(null, "preferences", null);
 
-			foreach (DictionaryEntry entry in prefs) {
-				xml.WriteStartElement(null, "pref", null);
-				xml.WriteStartAttribute(null, "name", null);
-				xml.WriteString((string)entry.Key);
-				xml.WriteEndAttribute();
-				xml.WriteString((string)entry.Value);
-				xml.WriteEndElement();
-			}
-
+		foreach (DictionaryEntry entry in prefs) {
+			xml.WriteStartElement(null, "pref", null);
+			xml.WriteStartAttribute(null, "name", null);
+			xml.WriteString((string)entry.Key);
+			xml.WriteEndAttribute();
+			xml.WriteString((string)entry.Value);
 			xml.WriteEndElement();
-			xml.WriteEndDocument();
 		}
+
+
+		xml.WriteEndElement();
+		xml.WriteEndDocument();
+		xml.Close();
 	}
 
 	///<summary>
@@ -154,17 +154,15 @@ public class Preferences
 	///</summary>
 	public void Load(string path)
 	{
-		using (XmlReader xmlReader = XmlReader.Create(path)) {
-			XmlDocument xmlDoc = new XmlDocument();
-			xmlDoc.Load(xmlReader);
+		XmlDocument xmlDoc = new XmlDocument();
+		xmlDoc.Load(path);
 
-			XmlNodeList prefList = xmlDoc.GetElementsByTagName("pref");
+		XmlNodeList prefList = xmlDoc.GetElementsByTagName("pref");
 
-			foreach(XmlNode prefNode in prefList) {
-				XmlAttributeCollection attrColl = prefNode.Attributes;
-				string name = attrColl["name"].Value;
-				prefs[name] = prefNode.InnerText;
-			}
+		foreach(XmlNode prefNode in prefList) {
+			XmlAttributeCollection attrColl = prefNode.Attributes;
+			string name = attrColl["name"].Value;
+			prefs[name] = prefNode.InnerText;
 		}
 	}
 

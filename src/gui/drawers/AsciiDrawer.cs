@@ -24,8 +24,7 @@ namespace Bless.Gui.Drawers {
 ///<summary>Draws the ascii representation of a byte</summary>
 public class AsciiDrawer : Drawer {
 
-	// Use the Zero Width Non-Joiner character \u200c to avoid ligatures
-	static readonly string AsciiTable = "................................ !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI\u200cJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghi\u200cjklmnopqrs\u200ctuvwxyz{|}~.................................................................................................................................";
+	static readonly string AsciiTable = "................................ !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~.................................................................................................................................";
 
 	public AsciiDrawer(Gtk.Widget wid, Information inf)
 			: base(wid, inf)

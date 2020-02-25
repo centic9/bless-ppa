@@ -68,12 +68,10 @@ public class Layout {
 	///<summary>Loads the layout from a file containing xml</summary>
 	public void Load(string name)
 	{
-		using (XmlReader xmlReader = XmlReader.Create(name)) {
-			layoutDoc.Load(xmlReader);
-			Configure();
-			filePath = name;
-			timeStamp = File.GetLastWriteTime(name);
-		}
+		layoutDoc.Load(name);
+		Configure();
+		filePath = name;
+		timeStamp = File.GetLastWriteTime(name);
 	}
 
 	///<summary>Loads the layout from string containing xml</summary>

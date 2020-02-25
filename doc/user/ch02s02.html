@@ -1,0 +1,28 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Installation guide</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Bless 0.6.0 Manual"><link rel="up" href="ch02.html" title="Chapter 2. Building and Installing Bless"><link rel="prev" href="ch02.html" title="Chapter 2. Building and Installing Bless"><link rel="next" href="ch03.html" title="Chapter 3. Getting Started"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Installation guide</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center">Chapter 2. Building and Installing Bless</th><td width="20%" align="right"> <a accesskey="n" href="ch03.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="bless-install-guide"></a>Installation guide</h2></div></div></div><p>
+			If you downloaded bless as a distribution specific package (eg .rpm, .deb, .tgz) follow your
+			distribution's instructions on how to install packages.
+		</p><p>
+			If you downloaded Bless as a source .tar.gz or .tar.bz2 package you will need to build
+			it and install it manually. The building and installation procedure is described below:
+		</p><p>
+		Overview: untar, ./configure, make, (make install)
+	    </p><div class="variablelist"><dl><dt><span class="term">Step 1: Untar the source package</span></dt><dd><p>For a tar.gz package use:
+	    				<span class="command"><strong>tar -xzvf bless-a.b.c.tar.gz</strong></span>
+					</p><p>For a tar.bz2 package use:
+	    				<span class="command"><strong>tar -xjvf bless-a.b.c.tar.bz2</strong></span>
+					</p></dd><dt><span class="term">Step 2: Configure the build</span></dt><dd><p>
+						Enter the directory created in the previous step (bless-a.b.c) and type
+						<span class="command"><strong>'./configure'</strong></span>. The script will check if your system has all the required
+						libraries. Use the <em class="parameter"><code>--prefix=<em class="replaceable"><code>PREFIX</code></em></code></em> option to set the installation directory prefix.
+						By default the prefix is '/usr/local'.
+					</p><p>
+						You can also use the <em class="parameter"><code>--enable-debug</code></em> option to build bless with debug
+						information.
+					</p></dd><dt><span class="term">Step 3: Build the program</span></dt><dd><p>
+						Type <span class="command"><strong>'make'</strong></span>. This will create <code class="filename">bless.exe</code> and the necessary 
+						libraries in the bin/ directory and the <code class="filename">bless</code> 
+						launcher script in the bless-a.b.c directory. You can also type <span class="command"><strong>'make check'</strong></span> to
+						run some tests on various bless components. 
+					</p></dd><dt><span class="term">Step 4: Install the program (optional)</span></dt><dd><p>
+						Become root and type <span class="command"><strong>'make install'</strong></span>. 
+					</p></dd></dl></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. Building and Installing Bless </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 3. Getting Started</td></tr></table></div></body></html>

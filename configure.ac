@@ -1,6 +1,6 @@
 # -*- Autoconf -*-
 AC_PREREQ(2.59)
-AC_INIT([bless], [0.6.2], [alf82@freemail.gr])
+AC_INIT([bless], [0.6.0], [alf82@freemail.gr])
 AC_CONFIG_SRCDIR([src/buffers/ByteBuffer.cs])
 AM_INIT_AUTOMAKE
 
@@ -8,8 +8,7 @@ AM_INIT_AUTOMAKE
 # I18N
 #
 AM_GNU_GETTEXT([external])
-# Require at least gettext 0.16 which supports recent autotools versions
-AM_GNU_GETTEXT_REQUIRE_VERSION(0.16)
+AM_GNU_GETTEXT_VERSION(0.15)
 
 GETTEXT_PACKAGE=bless
 AC_SUBST(GETTEXT_PACKAGE)
@@ -25,10 +24,11 @@ if test "x$PKG_CONFIG" = "xno"; then
 fi
 	
 # C# compiler
-AC_PATH_PROG(MCS, mcs, no)
+AC_PATH_PROG(MCS, gmcs, no)
 
-if test "x$MCS" = "xno"; then
-	AC_MSG_ERROR([No mono Csharp compiler found])
+CS="gmcs C#"
+if test "x$MCS" = "xno"  ; then
+	AC_MSG_ERROR([No $CS compiler found])
 fi
 
 # Mono runtime
@@ -94,7 +94,6 @@ AM_CONDITIONAL(ENABLE_DEBUG, [test "$DEBUG" = "yes"])
 
 AC_CONFIG_FILES([Makefile po/Makefile.in
 				 builder/Makefile
-				 builder/ConfigureDefines.cs
 				 bin/Makefile
 				 data/Makefile
 				 data/bless.desktop

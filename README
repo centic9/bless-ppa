@@ -1,6 +1,6 @@
-Bless - Gtk# Hex Editor v0.6.2
+Bless - Gtk# Hex Editor v0.6.0
 ==============================
-Copyright (c) 2004-2019, Alexandros Frantzis
+Copyright (c) 2004-2008, Alexandros Frantzis
 
 Thank you for using ( or at least trying out :) ) Bless!
 
@@ -50,7 +50,7 @@ Planned Features
 ------------------------------------
 
 More information, bug reports and the latest releases can be found at: 
-  https://github.com/afrantzis/bless
+  http://home.gna.org/bless
 
 I can be contacted at: alf82 [at] freemail [dot] gr.
 
@@ -76,26 +76,24 @@ will not be problems.
 4. Installation
 ---------------
 Quick: 
-    git clone https://github.com/afrantzis/bless, ./autogen.sh, ./configure,
-    make, (make install)
+    untar, ./configure, make, (make install)
 
 Detailed:
 
-Step 1: Get the source
+Step 1: Untar the source package
 ---------------------------------
-To get the latest source:
-    git clone https://github.com/afrantzis/bless
+For a tar.gz package use:
+    tar -xzvf bless-a.b.c.tar.gz
 
-For a compressed tarball use:
-    tar -xf bless-a.b.c.tar.gz
+For a tar.bz2 package use:
+    tar -xjvf bless-a.b.c.tar.gz
 
 Step 2: Configure the build
 -----------------------------
-Enter the directory created in the previous step (bless or bless-a.b.c). If you
-have checked out the latest source from git, first run './autogen.sh'. To
-configure the build and check that your system has all the required libraries
-use the './configure' script. Use the "--prefix=PREFIX" option to set the
-installation directory prefix.  By default the prefix is '/usr/local'.
+Enter the directory created in the previous step (bless-a.b.c) and type
+'./configure'. The script will check if your system has all the required
+libraries. Use the "--prefix=*" option to set the installation directory prefix.
+By default the prefix is '/usr/local'.
 
 You can also use the "--enable-debug" option to build bless with debug
 information.
@@ -103,9 +101,8 @@ information.
 Step 3: Build the program
 -----------------------------
 Type 'make'. This will create 'bless.exe' and the necessary library files in the
-bin/ directory and the 'bless' launcher script in the top source directory. You
-can also type 'make check' to run some tests on various bless components. Note
-that 'make check' requires the 'nunit-console' binary.
+bin/ directory and the 'bless' launcher script in the bless-a.b.c directory. You
+can also type 'make check' to run some tests on various bless components. 
 
 Step 4: Install the program (optional)
 --------------------------------------
@@ -116,7 +113,7 @@ Become root and type 'make install'.
 5. Running
 ----------
 If you chose to install the program, just type 'bless'. In any case you can  
-run the program by typing './bless' from within the top source directory.
+run the program by typing 'bless' in the 'bless-a.b.c' directory.
 Enjoy!
 
 ----------------

@@ -1,0 +1,118 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Editing a file</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Bless 0.6.0 Manual"><link rel="up" href="ch04.html" title="Chapter 4. Using Bless"><link rel="prev" href="ch04s02.html" title="Data View basics"><link rel="next" href="ch04s04.html" title="Searching and Replacing in files"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Editing a file</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04s02.html">Prev</a> </td><th width="60%" align="center">Chapter 4. Using <span class="application">Bless</span></th><td width="20%" align="right"> <a accesskey="n" href="ch04s04.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="bless-usage-edit"></a>Editing a file</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="bless-usage-edit-basic"></a>Basic editing operations</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="bless-usage-edit-basic-cursor"></a>Changing the current cursor position</h4></div></div></div><p>
+					You can move the cursor in two ways:
+				</p><div class="variablelist"><dl><dt><span class="term">Using the keyboard</span></dt><dd><div class="itemizedlist"><ul type="disc"><li>Pressing the <span class="keycap"><strong>Up Arrow</strong></span> key moves the cursor to the byte just above the current one.</li><li>Pressing the <span class="keycap"><strong>Down Arrow</strong></span> key moves the cursor to the byte just below the current one.</li><li>Pressing the <span class="keycap"><strong>Left Arrow</strong></span> key moves the cursor to the previous digit of the current byte. If the cursor was at the first digit
+								of a byte, it is moved to the last digit of the previous byte.</li><li>Pressing the <span class="keycap"><strong>Right Arrow</strong></span> key moves the cursor to the next digit of the current byte. If the cursor was at the last digit
+								of a byte, it is moved to the first digit of next byte.</li><li>Pressing the <span class="keycap"><strong>Page Up</strong></span> key moves the cursor to the byte which is one page before the current position.</li><li>Pressing the <span class="keycap"><strong>Page Down</strong></span> key moves the cursor to the byte which is one page after the current position.</li><li>Pressing the <span class="keycap"><strong>Home</strong></span> key moves the cursor to the first byte in the file.</li><li>Pressing the <span class="keycap"><strong>End</strong></span> key moves the cursor one byte after the last byte in the file.</li></ul></div></dd><dt><span class="term">Using the mouse</span></dt><dd>Clicking on a digit of a byte moves the cursor to that byte and digit.</dd></dl></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+						If the new cursor position is outside the currently visible page of data, the view scrolls automatically so that the new cursor position is made visible.	
+					</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="bless-usage-edit-basic-goto"></a>Moving the cursor to a specific position</h4></div></div></div><p>
+					To access the Go to Offset Bar use:
+					<span class="guisubmenu">Search</span> &#8594; <span class="guimenuitem">Go to Offset</span> (<span class="shortcut"><strong><span class="keycap"><strong>Ctrl</strong></span>+<span class="keycap"><strong>G</strong></span></strong></span>). 
+				</p><div class="figure"><a name="id2902181"></a><p class="title"><b>Figure 4.3. Go to Offset Bar</b></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="figures/bless_goto.png" alt="Go to Offset Bar"></div></div></div></div><br class="figure-break"><p>
+					To move the cursor to a specific position in the file:
+					</p><div class="orderedlist"><ol type="1"><li><p>
+								Type the offset in the <span class="guilabel">Offset</span> text entry (in the desired number format).
+								if the typed offset starts with '0x' it is considered hexadecimal, if it starts with '0' it is 
+								considered octal, otherwise it is considered decimal.
+							</p></li><li><p>Press the <span class="guibutton">Go to Offset</span> button</p></li></ol></div><p>
+				</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="bless-usage-edit-basic-select"></a>Selecting a range of data</h4></div></div></div><p>
+					There are three ways to select a range of data from the file you are editing:
+				</p><div class="variablelist"><dl><dt><span class="term">Using the keyboard</span></dt><dd><div class="itemizedlist"><ul type="disc"><li>Position the cursor at one end of the range you want to select.</li><li>
+									Hold down the <span class="keycap"><strong>Shift</strong></span> key and move the cursor
+									to the other end of the range using the keyboard. As you move the cursor, the currently selected data range will be highlighted.
+								</li><li>Release the <span class="keycap"><strong>Shift</strong></span> key.</li></ul></div></dd><dt><span class="term">Using the mouse</span></dt><dd><div class="itemizedlist"><ul type="disc"><li>Position the cursor at one end of the range you want to select.</li><li>
+									Hold down the Left mouse button and move the cursor to the other end of the range using the mouse. 
+									As you move the cursor, the currently selected data range will be highlighted.
+								</li><li>Release the Left mouse button.</li><li>
+									...alternatively, while pressing the <span class="keycap"><strong>Shift</strong></span> key, position the mouse pointer over 
+									the other end of the selection and click using the Left mouse button.
+								</li></ul></div></dd><dt><span class="term">Using the Select Range Bar</span></dt><dd><p>
+								To access the Select Range Bar use:
+								<span class="guisubmenu">Edit</span> &#8594; <span class="guimenuitem">Select Range</span> (<span class="shortcut"><strong><span class="keycap"><strong>Ctrl</strong></span>+<span class="keycap"><strong>Shift</strong></span>+<span class="keycap"><strong>R</strong></span></strong></span>). 
+							</p><div class="figure"><a name="id2902395"></a><p class="title"><b>Figure 4.4. Select Range Bar</b></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="figures/bless_select_range.png" alt="Select Range Bar"></div></div></div></div><br class="figure-break"><p>
+								To select a range:
+								</p><div class="orderedlist"><ol type="1"><li><p>
+											Type the starting offset in the <span class="guilabel">from</span> text entry (in the desired number format).
+											if the typed offset starts with '0x' it is considered hexadecimal, if it starts with '0' it is 
+											considered octal, otherwise it is considered decimal.
+										</p></li><li><p>Type the ending offset in the <span class="guilabel">to</span> text entry (in the desired number format).
+											if the typed offset starts with '0x' it is considered hexadecimal, if it starts with '0' it is 
+											considered octal, otherwise it is considered decimal.</p><p>
+											Instead of specifying an absolute ending offset you can specify the length of the selection. To do
+											this type the length in the <span class="guilabel">to</span> text entry, prepending it with either '+' or '-'.
+											The '+' or '-' specify the direction of the selection: '+' means select towards the end of the file and
+											'-' means select towards the beginning. The selected range always contains the starting offset. 
+										</p></li></ol></div><p>
+							</p></dd></dl></div><p>
+				</p><p>
+					Selecting a range of data has another useful effect: all the patterns matching the selected
+					data in the file are highlighted, thus providing a quick way to find or emphasize patterns.
+					The color of the highlighting can be changed using Layout files (see <a class="xref" href="ch05s03.html" title="Layout Files">the section called &#8220;Layout Files&#8221;</a>).
+					This feature can be turned off in the Preferences Dialog (see <a class="xref" href="ch05s02.html#bless-customizing-preferences-general" title="General Preferences">the section called &#8220;General Preferences&#8221;</a>).
+				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+						The patterns matching the selected data are highlighted only if the selected data size is at most 1024 bytes.
+					</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="bless-usage-edit-basic-overwrite-mode"></a>Toggling Overwrite/Insert edit mode</h4></div></div></div><p>
+					By pressing the <span class="keycap"><strong>Insert</strong></span> key on the keyboard or by clicking on the edit mode statusbar, you can change the edit mode <span class="application">Bless</span> is currently in. The edit mode
+					determines what happens when you add new data to the file. There are two available modes:
+					</p><div class="variablelist"><dl><dt><span class="term">Insert Mode</span></dt><dd>The new data is inserted at the current cursor position. <span class="application">Bless</span> automatically makes space for the new data.</dd><dt><span class="term">Overwrite Mode</span></dt><dd>The new data overwrites the old data, starting from the current cursor position.</dd></dl></div><p>
+				</p><div class="figure"><a name="bless-edit-mode"></a><p class="title"><b>Figure 4.5. Edit mode statusbar display</b></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="figures/bless_edit_mode.png" alt="Shows the edit mode display in the statusbar"></div></div></div></div><br class="figure-break"><p>
+					The current edit mode is displayed at the far right in the statusbar.
+				</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="bless-usage-edit-basic-number-base"></a>Changing the statusbar number base</h4></div></div></div><p>
+					You can change the number base of the information displayed in the statusbar (current offset, current selection).
+					Clicking on the Offset or Selection information in the statusbar cycles among Hexadecimal, Decimal and Octal number bases.
+					You can distinguish the current number base by checking the prefix of displayed numbers. A "0x" prefix denotes Hexadecimal,
+					a "0" prefix denotes Octal and no prefix denotes Decimal.  
+				</p><div class="figure"><a name="bless-number-base"></a><p class="title"><b>Figure 4.6. Statusbar number base</b></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="figures/bless_number_base.png" alt="Shows statusbar information in several number bases"></div></div></div></div><br class="figure-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="bless-usage-edit-basic-modify"></a>Modifying the data</h4></div></div></div><p>
+					You can directly modify the data in a file by using the keyboard:
+				</p><div class="variablelist"><dl><dt><span class="term">Inserting a new byte at a specific position</span></dt><dd><div class="itemizedlist"><ul type="disc"><li>Make sure you are in Insert Mode.</li><li>Move the cursor to the <span class="emphasis"><em>first digit</em></span> of desired position.</li><li>
+									Press the keys which correspond to the digits of the desired byte.
+									Each keypress automatically moves the cursor one position to the right.
+								</li></ul></div></dd><dt><span class="term">Modifying an existing byte</span></dt><dd><div class="itemizedlist"><ul type="disc"><li>Make sure you are in Overwrite Mode (only required if you want to modify the first digit of a byte).</li><li>Move the cursor to desired byte/digit position.</li><li>
+									Press the keys which correspond to the digits of the desired byte.
+									Each keypress automatically moves the cursor one position to the right.
+								</li></ul></div></dd><dt><span class="term">Appending data to the end of the file</span></dt><dd><div class="itemizedlist"><ul type="disc"><li>Move the cursor to the position just after the last byte in the file.</li><li>
+									Press the keys which correspond to the digits of the desired byte.
+									Each keypress automatically moves the cursor one position to the right.
+								</li></ul></div></dd></dl></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+						Each area accepts only certain digits (eg the hexadecimal area accepts only 0-9 and A-F). If a key (representing a digit) is pressed in an area that doesn't
+						accept it, the keypress is ignored.
+					</p></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="bless-usage-edit-clipboard"></a>Clipboard operations</h3></div></div></div><p>Bless features an advanced system to handle clipboard operations.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="bless-usage-edit-clipboard-cut"></a>Copy and Cut operations</h4></div></div></div><p>To copy the selected data to the clipboard use:
+					<span class="guisubmenu">Edit</span> &#8594; <span class="guimenuitem">Copy</span> (<span class="shortcut"><strong><span class="keycap"><strong>Ctrl</strong></span>+<span class="keycap"><strong>C</strong></span></strong></span>).
+				</p><p>To cut the selected data from the file and copy it to the clipboard use:
+					<span class="guisubmenu">Edit</span> &#8594; <span class="guimenuitem">Cut</span> (<span class="shortcut"><strong><span class="keycap"><strong>Ctrl</strong></span>+<span class="keycap"><strong>X</strong></span></strong></span>).
+				</p><p>
+					When copying or cutting data, that data becomes available to <span class="application">Bless</span> and other applications as well.
+					<span class="application">Bless</span> can offer its data to other applications in two main formats:
+					</p><div class="variablelist"><dl><dt><span class="term">Raw bytes</span></dt><dd><p>
+								<span class="application">Bless</span> can offer the selected data as raw bytes to applications that can handle it, for example other hex editors.
+								This is the format <span class="application">Bless</span> uses when interacting with itself (for example when you copy from a tab and paste into another). 
+								</p></dd><dt><span class="term">UTF-8 string</span></dt><dd><p>
+									<span class="application">Bless</span> can offer a string representation of the selected data in various number bases or UTF-8 text.
+									The number base is determined by the type of the area that has the focus at the end of the selection action for the cut/copied data.
+									For example if that area is hexadecimal, the offered string will contain the hexadecimal string representation 
+									of the selected data. If the ending area is the text area, the offered string will contain the UTF-8 text represented by
+									the selected data (if possible). 
+								</p></dd></dl></div><p>
+				</p><p>
+					 
+				</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="bless-usage-edit-clipboard-paste"></a>Paste operation</h4></div></div></div><p>To paste data from the clipboard to the current cursor position use:
+					<span class="guisubmenu">Edit</span> &#8594; <span class="guimenuitem">Paste</span> (<span class="shortcut"><strong><span class="keycap"><strong>Ctrl</strong></span>+<span class="keycap"><strong>V</strong></span></strong></span>).
+				</p><p>
+					The value of the Overwrite/Insert mode, affects the way paste operations function. If the mode is Insert, the pasted data is inserted at
+					the current cursor position. If the mode is Overwrite, the pasted data overwrites the data from the cursor position and on, as needed.    
+				</p><p>
+					Pasted data can originate from <span class="application">Bless</span> itself or some other application. 
+					<span class="application">Bless</span> can accept data in two formats:
+					</p><div class="variablelist"><dl><dt><span class="term">Raw bytes</span></dt><dd><p>
+									This is the format <span class="application">Bless</span> uses when interacting with itself (for example when you copy from a tab and paste into another).
+									External applications that offer raw bytes are usually other hex editors. 
+								</p></dd><dt><span class="term">UTF-8 string</span></dt><dd><p>
+									<span class="application">Bless</span> can accept data as a UTF-8 string (for example, from a text editor). It tries to parse the data and convert it to raw bytes 
+									according to the type of the area that currently has the focus. For example if the focus is in an octal area, <span class="application">Bless</span> will try to parse 
+									the string as a sequence of bytes represented in octal format. If the parse fails, the data will be inserted as UTF-8 text (as if they 
+									had been pasted into a text area).
+								</p></dd></dl></div><p>
+				</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="bless-usage-edit-undo"></a>Undo/Redo operations</h3></div></div></div><p>To undo previous actions use:
+					<span class="guisubmenu">Edit</span> &#8594; <span class="guimenuitem">Undo</span> (<span class="shortcut"><strong><span class="keycap"><strong>Ctrl</strong></span>+<span class="keycap"><strong>Z</strong></span></strong></span>).
+				</p><p>To redo previously undone actions use:
+					<span class="guisubmenu">Edit</span> &#8594; <span class="guimenuitem">Redo</span> (<span class="shortcut"><strong><span class="keycap"><strong>Shift</strong></span>+<span class="keycap"><strong>Ctrl</strong></span>+<span class="keycap"><strong>Z</strong></span></strong></span>).
+				</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04s02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch04.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch04s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Data View basics </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Searching and Replacing in files</td></tr></table></div></body></html>

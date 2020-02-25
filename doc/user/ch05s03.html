@@ -1,0 +1,148 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Layout Files</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Bless 0.6.0 Manual"><link rel="up" href="ch05.html" title="Chapter 5. Customizing Bless"><link rel="prev" href="ch05s02.html" title="Preferences"><link rel="next" href="ch05s04.html" title="Extending with plugins"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Layout Files</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch05s02.html">Prev</a> </td><th width="60%" align="center">Chapter 5. Customizing <span class="application">Bless</span></th><td width="20%" align="right"> <a accesskey="n" href="ch05s04.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="bless-customizing-layouts"></a>Layout Files</h2></div></div></div><p>
+		The way <span class="application">Bless</span> presents the data is highly customizable. The configuration is done 
+		through layout description files. Currently there is no way to graphically edit the
+		layouts but one is planned for a later version.
+	</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="bless-customizing-layouts-selecting"></a>Selecting a layout</h3></div></div></div><p>
+			<span class="application">Bless</span> searches for layout description files in the <code class="filename">$XDG_CONFIG_HOME/bless/layouts</code> directory
+			(usually $HOME/.config/bless/layouts). You can preview and select the available layouts with the layout 
+			selection dialog, which can be accessed by using
+			<span class="guisubmenu">View</span> &#8594; <span class="guimenuitem">Layouts</span>.
+		</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="bless-customizing-layouts-creating"></a>Creating Layout Files</h3></div></div></div><p>
+			Layout description files are XML files ending with the .layout suffix. They consist of 
+			the &lt;layout&gt; tag which contains a series of &lt;area&gt; tags that describe each 
+			area in the layout. The &lt;area&gt; tag takes one attribute, <span class="emphasis"><em>type</em></span>, which defines 
+			the type of the area. The valid values for <span class="emphasis"><em>type</em></span> are:
+		</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>hexadecimal</td><td>Displays the data in hexadecimal format.</td></tr><tr><td>decimal</td><td>Displays the data in decimal format.</td></tr><tr><td>octal</td><td>Displays the data in octal format.</td></tr><tr><td>binary</td><td>Displays the data in binary format.</td></tr><tr><td>ascii</td><td>Displays the data in ascii format.</td></tr><tr><td>offset</td><td>Displays the data offset.</td></tr><tr><td>separator</td><td>A vertical line that visually separates areas.</td></tr></tbody></table></div><p>For example, the following simple layout file:</p><pre class="programlisting">&lt;layout&gt;
+	&lt;area type="offset"&gt;&lt;/area&gt;
+	&lt;area type="hexadecimal"&gt;&lt;/area&gt;
+	&lt;area type="offset"&gt;&lt;/area&gt;
+	&lt;area type="separator"&gt;&lt;/area&gt;
+	&lt;area type="ascii"&gt;&lt;/area&gt;
+&lt;/layout&gt;</pre><p>produces the standard offset-hex-ascii view with default colors:</p><div class="figure"><a name="id2904964"></a><p class="title"><b>Figure 5.4. Standard offset-hex-ascii view</b></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="figures/bless_layout_oha.png" alt="Standard offset-hex-ascii view"></div></div></div></div><br class="figure-break"><p>
+		Each area may include additional options about how to display the data. Some options 
+		are available to all areas whereas others are area-specific. The options that aren't
+		explicitly defined assume their default values. Also if an option is specified for an 
+		area that doesn't support it, the option is just ignored.
+	</p><div class="informaltable"><table border="1"><colgroup><col><col><col><col></colgroup><thead><tr><th>Option</th><th>Values</th><th>Description</th><th>Areas</th></tr></thead><tbody><tr><td>display</td><td>see below</td><td>The fonts and colors that should be used for the display.</td><td>all</td></tr><tr><td>case</td><td>upper|lower</td><td>Whether to display hexadecimal values using lowercase or uppercase.</td><td>offset, hexadecimal</td></tr><tr><td>grouping</td><td>#int</td><td>The number of bytes that should be grouped together in each column.</td><td>hexadecimal, decimal, octal, binary</td></tr><tr><td>bpr</td><td>#int</td><td>The number of bytes on each row in the area (see below for more information)</td><td>hexadecimal, decimal, octal, binary, ascii</td></tr><tr><td>bytes</td><td>#int</td><td>The number of bytes which will be used to display offsets (default 4)</td><td>offset</td></tr></tbody></table></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="bless-customizing-layouts-creating-bpr"></a>The bpr option</h4></div></div></div><p>
+				The &lt;bpr&gt; (bytes per row) option sets the (maximum) number of bytes that each row in an area can have. If it is not
+				specified, the number of bytes on each row changes dynamically in order to fill the whole available width. If it is specified 
+				in at least one area in the layout all the areas in the layout conform to the specified restriction. In case of a conflict, for example 
+				when two areas specify different bprs, the smallest value is used. Finally, if there is a conflict between bpr and grouping values, 
+				the highest value that conforms to the grouping and is below the bpr is used (eg if bpr=5 and grouping=2 the bytes per row will
+				be 4).
+			</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="bless-customizing-layouts-creating-display"></a>The display option</h4></div></div></div><p>
+				The &lt;display&gt; option is the most complicated of the lot and deserves additional explanation.
+			</p><p>
+				Bless distinguishes between even and odd rows, and even and odd columns. You can choose
+				how to color each of the above items thus creating a visual result tailored to your needs. This
+ 				is achieved by using the &lt;display&gt; tag. Note that the first row and column are numbered as 0
+				and are therefore considered even.
+			</p><p>
+				A &lt;display&gt; tag may contain a &lt;font&gt; tag which sets the font family and size to use for 
+				displaying data in the area (eg "Courier 10"). The font should be a monospaced font, otherwise the
+				data in the area won't be displayed correctly. It is also advised to use same sized fonts in all the 
+				areas so that the data is correctly aligned.
+			</p><p>
+				A &lt;display&gt; tag may also contain a &lt;evenrow&gt; and a &lt;oddrow&gt; tag which describe how 
+				the even and odd rows will look like. Each of the &lt;evenrow&gt; and &lt;oddrow&gt; tags may     
+				contain a &lt;evencolumn&gt;, an &lt;oddcolumn&gt;, a &lt;selectedcolumn&gt; and a 
+				&lt;patternmatchcolumn&gt; tag. The first two describe the appearance of the respective columns
+				under normal conditions (no highlighting). The &lt;selectedcolumn&gt; tag 
+				describes the appearance of selected bytes and the &lt;patternmatchcolumn&gt; tag the appearance
+				of the highlighted bytes that match the selected bytes (see <a class="xref" href="ch04s03.html#bless-usage-edit-basic-select" title="Selecting a range of data">the section called &#8220;Selecting a range of data&#8221;</a>).
+				The description for all the above is accomplished by using the &lt;foreground&gt; and 
+				&lt;background&gt; tags which specify the foreground and background colors to use.
+			</p><p>
+				The colors can be specified either by name (eg dark blue) or by an RGB triad (eg #ff004e).
+			</p><div class="figure"><a name="id2905238"></a><p class="title"><b>Figure 5.5. Display tag hierarchy</b></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="figures/bless_display_tag.png" alt="Display tag hierarchy"></div></div></div></div><br class="figure-break"><p>
+				An example:
+			</p><pre class="programlisting">
+&lt;layout&gt;
+    &lt;area type="offset"&gt;
+        &lt;display&gt;
+            &lt;evenrow&gt;
+                &lt;evencolumn&gt;
+                    &lt;foreground&gt;dark red&lt;/foreground&gt;
+                &lt;/evencolumn&gt;
+            &lt;/evenrow&gt;
+            &lt;oddrow&gt;
+                &lt;evencolumn&gt;
+                    &lt;foreground&gt;dark red&lt;/foreground&gt;
+                &lt;/evencolumn&gt;
+            &lt;/oddrow&gt;
+        &lt;/display&gt;                        
+    &lt;/area&gt;
+    
+    &lt;area type="separator"&gt;
+        &lt;display&gt;
+            &lt;evenrow&gt;
+                &lt;evencolumn&gt;
+                    &lt;foreground&gt;dark green&lt;/foreground&gt;
+                    &lt;background&gt;white&lt;/background&gt;
+                &lt;/evencolumn&gt;
+            &lt;/evenrow&gt;
+        &lt;/display&gt;                        
+    &lt;/area&gt;
+    
+    &lt;area type="hexadecimal"&gt;
+        &lt;grouping&gt;2&lt;/grouping&gt;
+        &lt;case&gt;upper&lt;/case&gt;
+        &lt;display&gt;
+            &lt;evenrow&gt;
+                &lt;selectedcolumn&gt;
+                    &lt;foreground&gt;white&lt;/foreground&gt;
+                    &lt;background&gt;#8faec8&lt;/background&gt;
+                &lt;/selectedcolumn&gt;
+            &lt;/evenrow&gt;    
+            &lt;oddrow&gt;
+                &lt;evencolumn&gt;
+                    &lt;background&gt;#eeeeee&lt;/background&gt;
+                &lt;/evencolumn&gt;
+                &lt;oddcolumn&gt;
+                    &lt;background&gt;#eeeeee&lt;/background&gt;
+                &lt;/oddcolumn&gt;
+                &lt;selectedcolumn&gt;
+                    &lt;foreground&gt;white&lt;/foreground&gt;
+                    &lt;background&gt;#7b96ac&lt;/background&gt;
+                &lt;/selectedcolumn&gt;
+            &lt;/oddrow&gt;    
+        &lt;/display&gt;    
+    &lt;/area&gt;
+
+    &lt;area type="separator"&gt;
+        &lt;display&gt;
+            &lt;evenrow&gt;
+                &lt;evencolumn&gt;
+                    &lt;foreground&gt;dark green&lt;/foreground&gt;
+                    &lt;background&gt;white&lt;/background&gt;
+                &lt;/evencolumn&gt;
+            &lt;/evenrow&gt;
+        &lt;/display&gt;                        
+    &lt;/area&gt;
+    
+    &lt;area type="decimal"&gt;
+    &lt;/area&gt;
+
+    &lt;area type="separator"&gt;
+        &lt;display&gt;
+            &lt;evenrow&gt;
+                &lt;evencolumn&gt;
+                    &lt;foreground&gt;dark green&lt;/foreground&gt;
+                    &lt;background&gt;white&lt;/background&gt;
+                &lt;/evencolumn&gt;
+            &lt;/evenrow&gt;
+        &lt;/display&gt;                        
+    &lt;/area&gt;
+
+    &lt;area type="binary"&gt;
+    &lt;/area&gt;
+&lt;/layout&gt;
+</pre><p>The result is:</p><div class="figure"><a name="id2905336"></a><p class="title"><b>Figure 5.6. Example layout</b></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="figures/bless_layout_example1.png" alt="Example layout screenshot"></div></div></div></div><br class="figure-break"><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+			Not all font options are used in all areas. The hexadecimal, decimal, octal and binary areas use
+			all options. The ascii, offset and separator areas do not use the &lt;oddcolumn&gt; tag.
+		</p></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+			The */evencolumn/background colors are considered the primary background colors for 
+			their respective row. They are used to paint all parts of the row that are not otherwise painted 
+			(eg space between columns). The evenrow/evencolumn/background color is also considered the main
+			background color of the area and is used to paint the unused parts of the area.	
+		</p></div></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch05s02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch05.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch05s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Preferences </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Extending with plugins</td></tr></table></div></body></html>

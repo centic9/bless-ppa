@@ -33,11 +33,11 @@ public class AboutDialog: Gtk.AboutDialog
 	{
 		Artists = new string[] {"Michael Iatrou"};
 		Authors = new string[] {"Alexandros Frantzis"};
-		Copyright =  Catalog.GetString("Copyright 2004 - 2019 Alexandros Frantzis and contributors");
+		Copyright =  Catalog.GetString("Copyright 2004 - 2008 Alexandros Frantzis");
 		ProgramName = "Bless";
 		Version = ConfigureDefines.VERSION;
 		Comments = Catalog.GetString("Bless is a Hex Editor for Gtk#");
-		Website = "https://github.com/afrantzis/bless";
+		Website = "http://home.gna.org/bless";
 		Logo =  new Gdk.Pixbuf(FileResourcePath.GetDataPath("bless-about.png"));
 	}
 }

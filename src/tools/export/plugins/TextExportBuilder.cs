@@ -141,14 +141,8 @@ public class TextExportBuilder : IExportBuilder
 			b = buffer[offset];
 		}
 
-		if (info.Type == 'A') {
-			// Replace unprintable characters with dots
-			if (b < 32 || b >= 127) {
-				str = ".";
-			}
-			else
-				str = System.Text.Encoding.ASCII.GetString(new byte[]{b});
-		}
+		if (info.Type == 'A')
+			str = info.Type.ToString();
 		else {
 			bool lowercase;
 			int numBase = GetBaseFromArgument(info.Type, out lowercase);

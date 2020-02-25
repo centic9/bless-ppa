@@ -32,7 +32,7 @@ bless-builder:
 	cd builder && $(MAKE) builder
 
 dist-hook:
-	git log > $(distdir)/ChangeLog
+	bzr log > $(distdir)/ChangeLog
 
 install-data-local:
 	$(INSTALL) -d $(DESTDIR)$(datadir)/doc/$(PACKAGE_NAME)

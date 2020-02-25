@@ -22,7 +22,6 @@
 using System.IO;
 using Bless.Plugins;
 using Bless.Tools.Export;
-using Mono.Unix;
 
 namespace Bless.Tools.Export.Plugins {
 
@@ -33,7 +32,7 @@ public class HTMLExportPlugin : ExportPlugin
 	{
 		name = "HTMLExport";
 		author = "Alexandros Frantzis";
-		description = Catalog.GetString("Export as HTML");
+		description = "Export as HTML";
 		dependencies.Add("TextExport");
 	}
 

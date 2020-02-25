@@ -21,7 +21,6 @@
 
 using System;
 using System.Text;
-using ByteList = System.Collections.Generic.List<byte>;
 
 namespace Bless.Util {
 
@@ -35,7 +34,8 @@ public class ByteArray
 	{
 		int i = 0;
 		int len = s.Length;
-		ByteList ba = new ByteList();
+		byte[] ba = new byte[(len/BaseConverter.DefaultMinDigits[baseNum]) + 1];
+		int j = 0;
 
 		// ignore leading whitespace
 		while (i < len && s[i] == ' ') i++;
@@ -44,14 +44,18 @@ public class ByteArray
 			int k = 1;
 			while (i + k < len &&  s[i+k] != ' ' && k < BaseConverter.DefaultMinDigits[baseNum]) k++;
 
-			ba.Add((byte)BaseConverter.ConvertToNum(s, i, i + k - 1, baseNum));
+			ba[j++] = (byte)BaseConverter.ConvertToNum(s, i, i + k - 1, baseNum);
 
 			// skip spaces
 			i = i + k;
 			while (i < len && s[i] == ' ') i++;
 		}
 
-		return ba.ToArray();
+		byte[] baRet = new byte[j];
+
+		Array.Copy(ba, baRet, j);
+
+		return baRet;
 	}
 
 	static public string ToString(byte[] ba, int baseNum)
