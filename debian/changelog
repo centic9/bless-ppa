@@ -15,6 +15,18 @@ bless (0.6.2-0ubuntu0~ppa1) bionic; urgency=medium
 
  -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Wed, 01 May 2019 10:11:39 +0200
 
+bless (0.6.0-7) unstable; urgency=medium
+
+  * [9d4017b] Fix save behaviour (Closes: #850627, 767216)
+
+ -- Jo Shields <joshield@microsoft.com>  Tue, 25 Feb 2020 14:09:28 -0500
+
+bless (0.6.0-6) unstable; urgency=medium
+
+  * [e96f299] Fix build on newer Mono
+
+ -- Jo Shields <joshield@microsoft.com>  Mon, 24 Feb 2020 16:45:07 -0500
+
 bless (0.6.0-5.1) unstable; urgency=medium
 
   * Don't depend on rarian. Thanks Jeremy Bicha for the patch.
