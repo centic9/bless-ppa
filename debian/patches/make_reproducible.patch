@@ -1,7 +1,7 @@
 Index: git/bless-script.in
 ===================================================================
---- git.orig/bless-script.in	2019-05-01 10:10:21.558220546 +0200
-+++ git/bless-script.in	2019-05-01 10:34:23.513075601 +0200
+--- git.orig/bless-script.in	2020-04-04 20:41:08.521525400 +0200
++++ git/bless-script.in	2020-04-04 20:41:08.517525406 +0200
 @@ -1,3 +1,3 @@
 -#!@SHELL@
 +#!/bin/sh
@@ -11,8 +11,8 @@ Index: git/bless-script.in
 +mono "@blesssrcdir@/bin/bless.exe" "$@"
 Index: git/data/help_script.tmpl.in
 ===================================================================
---- git.orig/data/help_script.tmpl.in	2019-05-01 10:10:21.566220669 +0200
-+++ git/data/help_script.tmpl.in	2019-05-01 10:34:30.061288724 +0200
+--- git.orig/data/help_script.tmpl.in	2020-04-04 20:41:08.521525400 +0200
++++ git/data/help_script.tmpl.in	2020-04-04 20:41:08.517525406 +0200
 @@ -1,4 +1,4 @@
 -#!@SHELL@
 +#!/bin/sh
@@ -21,8 +21,8 @@ Index: git/data/help_script.tmpl.in
  xml_help="@blessdocdir@/user/bless-manual.xml"
 Index: git/src/bless-script.in
 ===================================================================
---- git.orig/src/bless-script.in	2019-05-01 10:10:21.602221220 +0200
-+++ git/src/bless-script.in	2019-05-01 10:34:41.389648505 +0200
+--- git.orig/src/bless-script.in	2020-04-04 20:41:08.521525400 +0200
++++ git/src/bless-script.in	2020-04-04 20:41:08.517525406 +0200
 @@ -1,3 +1,3 @@
 -#!@SHELL@
 +#!/bin/sh

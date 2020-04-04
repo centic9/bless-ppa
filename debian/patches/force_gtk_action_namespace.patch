@@ -12,11 +12,11 @@ Debian-Bug: https://bugs.debian.org/475208
  src/gui/plugins/InfobarPlugin.cs           | 2 ++
  6 files changed, 12 insertions(+)
 
-diff --git a/src/gui/plugins/BitwiseOperationsPlugin.cs b/src/gui/plugins/BitwiseOperationsPlugin.cs
-index 12cb15c..1afed7b 100644
---- a/src/gui/plugins/BitwiseOperationsPlugin.cs
-+++ b/src/gui/plugins/BitwiseOperationsPlugin.cs
-@@ -30,6 +30,8 @@ using Bless.Plugins;
+Index: git/src/gui/plugins/BitwiseOperationsPlugin.cs
+===================================================================
+--- git.orig/src/gui/plugins/BitwiseOperationsPlugin.cs	2020-04-04 20:41:05.925529117 +0200
++++ git/src/gui/plugins/BitwiseOperationsPlugin.cs	2020-04-04 20:41:05.921529123 +0200
+@@ -30,6 +30,8 @@
  using Bless.Buffers;
  using Mono.Unix;
  
@@ -25,11 +25,11 @@ index 12cb15c..1afed7b 100644
  namespace Bless.Gui.Plugins {
  
  ///<summary>
-diff --git a/src/gui/plugins/EditOperationsPlugin.cs b/src/gui/plugins/EditOperationsPlugin.cs
-index b4a6fcd..ab1cefb 100644
---- a/src/gui/plugins/EditOperationsPlugin.cs
-+++ b/src/gui/plugins/EditOperationsPlugin.cs
-@@ -27,6 +27,8 @@ using Bless.Plugins;
+Index: git/src/gui/plugins/EditOperationsPlugin.cs
+===================================================================
+--- git.orig/src/gui/plugins/EditOperationsPlugin.cs	2020-04-04 20:41:05.925529117 +0200
++++ git/src/gui/plugins/EditOperationsPlugin.cs	2020-04-04 20:41:05.921529123 +0200
+@@ -27,6 +27,8 @@
  using Bless.Gui.Dialogs;
  using Bless.Tools;
  
@@ -38,11 +38,11 @@ index b4a6fcd..ab1cefb 100644
  namespace Bless.Gui.Plugins {
  
  public class EditOperationsPlugin : GuiPlugin
-diff --git a/src/gui/plugins/FileOperationsPlugin.cs b/src/gui/plugins/FileOperationsPlugin.cs
-index 45319d7..04edd01 100644
---- a/src/gui/plugins/FileOperationsPlugin.cs
-+++ b/src/gui/plugins/FileOperationsPlugin.cs
-@@ -29,6 +29,8 @@ using System.IO;
+Index: git/src/gui/plugins/FileOperationsPlugin.cs
+===================================================================
+--- git.orig/src/gui/plugins/FileOperationsPlugin.cs	2020-04-04 20:41:05.925529117 +0200
++++ git/src/gui/plugins/FileOperationsPlugin.cs	2020-04-04 20:41:05.921529123 +0200
+@@ -29,6 +29,8 @@
  using Gtk;
  using Mono.Unix;
  
@@ -51,11 +51,11 @@ index 45319d7..04edd01 100644
  namespace Bless.Gui.Plugins {
  
  public class FileOperationsPlugin : GuiPlugin
-diff --git a/src/gui/plugins/FindReplacePlugin.cs b/src/gui/plugins/FindReplacePlugin.cs
-index a656760..7063d0c 100644
---- a/src/gui/plugins/FindReplacePlugin.cs
-+++ b/src/gui/plugins/FindReplacePlugin.cs
-@@ -31,6 +31,8 @@ using System.Text;
+Index: git/src/gui/plugins/FindReplacePlugin.cs
+===================================================================
+--- git.orig/src/gui/plugins/FindReplacePlugin.cs	2020-04-04 20:41:05.925529117 +0200
++++ git/src/gui/plugins/FindReplacePlugin.cs	2020-04-04 20:41:05.921529123 +0200
+@@ -31,6 +31,8 @@
  using Bless.Plugins;
  using Mono.Unix;
  
@@ -64,11 +64,11 @@ index a656760..7063d0c 100644
  namespace Bless.Gui.Plugins {
  
  public class FindReplacePlugin : GuiPlugin
-diff --git a/src/gui/plugins/HistoryPlugin.cs b/src/gui/plugins/HistoryPlugin.cs
-index d84c5f4..d6365a2 100644
---- a/src/gui/plugins/HistoryPlugin.cs
-+++ b/src/gui/plugins/HistoryPlugin.cs
-@@ -26,6 +26,8 @@ using Bless.Plugins;
+Index: git/src/gui/plugins/HistoryPlugin.cs
+===================================================================
+--- git.orig/src/gui/plugins/HistoryPlugin.cs	2020-04-04 20:41:05.925529117 +0200
++++ git/src/gui/plugins/HistoryPlugin.cs	2020-04-04 20:41:05.921529123 +0200
+@@ -26,6 +26,8 @@
  using Bless.Gui;
  using Bless.Tools;
  
@@ -77,11 +77,11 @@ index d84c5f4..d6365a2 100644
  namespace Bless.Gui.Plugins {
  
  public class HistoryPlugin : GuiPlugin
-diff --git a/src/gui/plugins/InfobarPlugin.cs b/src/gui/plugins/InfobarPlugin.cs
-index 12889ea..29327e5 100644
---- a/src/gui/plugins/InfobarPlugin.cs
-+++ b/src/gui/plugins/InfobarPlugin.cs
-@@ -28,6 +28,8 @@ using Bless.Buffers;
+Index: git/src/gui/plugins/InfobarPlugin.cs
+===================================================================
+--- git.orig/src/gui/plugins/InfobarPlugin.cs	2020-04-04 20:41:05.925529117 +0200
++++ git/src/gui/plugins/InfobarPlugin.cs	2020-04-04 20:41:05.921529123 +0200
+@@ -28,6 +28,8 @@
  using Bless.Tools;
  using Mono.Unix;
  

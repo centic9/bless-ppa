@@ -1,3 +1,9 @@
+bless (0.6.2-0ubuntu0~ppa3) bionic; urgency=medium
+
+  * Manually merge in changes from 0.6.0-6 and -7 in Debian.
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Sat, 04 Apr 2020 20:39:35 +0200
+
 bless (0.6.2-0ubuntu0~ppa2) bionic; urgency=medium
 
   * Run autogen.sh to add missing files required for building now.

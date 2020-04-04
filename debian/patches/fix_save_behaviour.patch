@@ -1,7 +1,7 @@
 Index: git/src/tools/Preferences.cs
 ===================================================================
---- git.orig/src/tools/Preferences.cs	2020-04-04 20:29:22.162096951 +0200
-+++ git/src/tools/Preferences.cs	2020-04-04 20:31:20.462038330 +0200
+--- git.orig/src/tools/Preferences.cs	2020-04-04 20:41:09.205524421 +0200
++++ git/src/tools/Preferences.cs	2020-04-04 20:41:09.201524427 +0200
 @@ -127,11 +127,10 @@
  	///</summary>
  	public void Save(string path)
@@ -20,8 +20,8 @@ Index: git/src/tools/Preferences.cs
  
 Index: git/src/tools/Session.cs
 ===================================================================
---- git.orig/src/tools/Session.cs	2020-04-04 20:29:22.162096951 +0200
-+++ git/src/tools/Session.cs	2020-04-04 20:38:07.921793318 +0200
+--- git.orig/src/tools/Session.cs	2020-04-04 20:41:09.205524421 +0200
++++ git/src/tools/Session.cs	2020-04-04 20:41:09.201524427 +0200
 @@ -72,10 +72,10 @@
  
  	public void Save(string path)

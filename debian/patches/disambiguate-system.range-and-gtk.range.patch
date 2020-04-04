@@ -1,21 +1,21 @@
-Index: bless/src/buffers/ByteBuffer.cs
+Index: git/src/buffers/ByteBuffer.cs
 ===================================================================
---- bless.orig/src/buffers/ByteBuffer.cs
-+++ bless/src/buffers/ByteBuffer.cs
-@@ -26,6 +26,8 @@ using System.Threading;
- using Bless.Util;
+--- git.orig/src/buffers/ByteBuffer.cs	2020-04-04 20:41:07.801526430 +0200
++++ git/src/buffers/ByteBuffer.cs	2020-04-04 20:41:07.801526430 +0200
+@@ -27,6 +27,8 @@
  using Bless.Tools;
+ using Mono.Unix;
  
 +using Range=Bless.Util.Range;
 +
  namespace Bless.Buffers {
  
  ///<summary>
-Index: bless/src/tools/find/IFindStrategy.cs
+Index: git/src/tools/find/IFindStrategy.cs
 ===================================================================
---- bless.orig/src/tools/find/IFindStrategy.cs
-+++ bless/src/tools/find/IFindStrategy.cs
-@@ -23,6 +23,8 @@ using System;
+--- git.orig/src/tools/find/IFindStrategy.cs	2020-04-04 20:41:07.801526430 +0200
++++ git/src/tools/find/IFindStrategy.cs	2020-04-04 20:41:07.801526430 +0200
+@@ -23,6 +23,8 @@
  using Bless.Util;
  using Bless.Buffers;
  
@@ -24,18 +24,18 @@ Index: bless/src/tools/find/IFindStrategy.cs
  namespace Bless.Tools.Find {
  
  public interface IFindStrategy
-@@ -40,4 +42,4 @@ public interface IFindStrategy
+@@ -40,4 +42,4 @@
  	bool Cancelled { get; set; }
  		}
  
 -} // end namespace
 \ No newline at end of file
 +} // end namespace
-Index: bless/src/tools/find/IFinder.cs
+Index: git/src/tools/find/IFinder.cs
 ===================================================================
---- bless.orig/src/tools/find/IFinder.cs
-+++ bless/src/tools/find/IFinder.cs
-@@ -23,6 +23,8 @@ using System;
+--- git.orig/src/tools/find/IFinder.cs	2020-04-04 20:41:07.801526430 +0200
++++ git/src/tools/find/IFinder.cs	2020-04-04 20:41:07.801526430 +0200
+@@ -23,6 +23,8 @@
  using Bless.Util;
  using Bless.Buffers;
  
@@ -44,18 +44,18 @@ Index: bless/src/tools/find/IFinder.cs
  namespace Bless.Tools.Find {
  
  public delegate void FirstFindHandler();
-@@ -41,4 +43,4 @@ public interface IFinder
+@@ -41,4 +43,4 @@
  	IAsyncResult ReplaceAll(byte[] ba, AsyncCallback ac);
  }
  
 -} // end namespace
 \ No newline at end of file
 +} // end namespace
-Index: bless/src/tools/find/FindOperations.cs
+Index: git/src/tools/find/FindOperations.cs
 ===================================================================
---- bless.orig/src/tools/find/FindOperations.cs
-+++ bless/src/tools/find/FindOperations.cs
-@@ -24,6 +24,8 @@ using System.IO;
+--- git.orig/src/tools/find/FindOperations.cs	2020-04-04 20:41:07.801526430 +0200
++++ git/src/tools/find/FindOperations.cs	2020-04-04 20:41:07.801526430 +0200
+@@ -24,6 +24,8 @@
  using System.Threading;
  using Bless.Util;
  
@@ -64,11 +64,11 @@ Index: bless/src/tools/find/FindOperations.cs
  namespace Bless.Tools.Find {
  
  ///<summary>
-Index: bless/src/gui/areas/AreaGroup.cs
+Index: git/src/gui/areas/AreaGroup.cs
 ===================================================================
---- bless.orig/src/gui/areas/AreaGroup.cs
-+++ bless/src/gui/areas/AreaGroup.cs
-@@ -25,6 +25,8 @@ using Bless.Buffers;
+--- git.orig/src/gui/areas/AreaGroup.cs	2020-04-04 20:41:07.801526430 +0200
++++ git/src/gui/areas/AreaGroup.cs	2020-04-04 20:41:07.801526430 +0200
+@@ -25,6 +25,8 @@
  using Bless.Util;
  using Bless.Gui.Drawers;
  
@@ -77,11 +77,11 @@ Index: bless/src/gui/areas/AreaGroup.cs
  namespace Bless.Gui.Areas
  {
  
-Index: bless/src/gui/DataBookFinder.cs
+Index: git/src/gui/DataBookFinder.cs
 ===================================================================
---- bless.orig/src/gui/DataBookFinder.cs
-+++ bless/src/gui/DataBookFinder.cs
-@@ -26,6 +26,8 @@ using Bless.Util;
+--- git.orig/src/gui/DataBookFinder.cs	2020-04-04 20:41:07.801526430 +0200
++++ git/src/gui/DataBookFinder.cs	2020-04-04 20:41:07.801526430 +0200
+@@ -26,6 +26,8 @@
  using Bless.Buffers;
  using Bless.Tools.Find;
  
