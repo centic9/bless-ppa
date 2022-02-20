@@ -1,0 +1,22 @@
+From: =?utf-8?q?Felix_D=C3=B6rre?= <debian@felixdoerre.de>
+Date: Tue, 8 Feb 2022 18:15:43 +0100
+Subject: Show system-wide layouts
+
+(CLoses: #952519)
+---
+ src/gui/dialogs/LayoutSelectionDialog.cs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/gui/dialogs/LayoutSelectionDialog.cs b/src/gui/dialogs/LayoutSelectionDialog.cs
+index f1c91e4..1df8b4c 100644
+--- a/src/gui/dialogs/LayoutSelectionDialog.cs
++++ b/src/gui/dialogs/LayoutSelectionDialog.cs
+@@ -93,7 +93,7 @@ public class LayoutSelectionDialog : Dialog {
+ 		TreeIter ti = ts.AppendValues(Catalog.GetString("System-wide Layouts"), string.Empty);
+ 
+ 		// fill list from bless data dir
+-		string dataDir = FileResourcePath.GetDataPath("data");
++		string dataDir = FileResourcePath.GetDataPath(".");
+ 		if (Directory.Exists(dataDir)) {
+ 			string[] files = Directory.GetFiles(dataDir, "*.layout");
+ 			foreach (string s in files) {

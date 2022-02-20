@@ -124,6 +124,7 @@ public class FileBuffer: BaseBuffer
 		if (reader != null)
 			reader.Close();
 		
+#if ENABLE_UNIX_SPECIFIC
 		UnixFileInfo fsInfo = new UnixFileInfo(filename);
 		if (!fsInfo.Exists)
 			throw new FileNotFoundException(fsInfo.FullName);
@@ -141,12 +142,19 @@ public class FileBuffer: BaseBuffer
 		}
 		else
 			throw new NotSupportedException("File object isn't a regular or block device.");
-		
-		Stream stream = new FileStream(filename, FileMode.Open, FileAccess.Read);
+#endif
+
+		Stream stream = new FileStream(filename, FileMode.Open, FileAccess.Read,
+		                               FileShare.ReadWrite);
 		
 		if (stream.CanSeek == false)
 			throw new NotSupportedException("File object doesn't support seeking.");
 		
+#if !ENABLE_UNIX_SPECIFIC
+		FileLength = stream.Seek(0, SeekOrigin.End);
+		stream.Seek(0, SeekOrigin.Begin);
+		isResizable = false;
+#endif
 		reader = new BinaryReader(stream);
 		
 		winOccupied = reader.Read(window, 0, window.Length);

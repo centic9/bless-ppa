@@ -1,0 +1,5 @@
+**/*~
+po/**
+!po/LINGUAS
+!po/Makevars
+!po/POTFILES.in

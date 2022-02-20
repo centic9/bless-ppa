@@ -1,3 +1,34 @@
+Bless v0.6.3 20201011
+---------------------
+
+* Add plugin to allow copying the current offset to clipboard (gh #15).
+* Fix display of Courier font glyphs (gh #25).
+* Use Gtk.Builder for UI loading, drop libglade (gh #2).
+* Move to the meson build system, drop autotools.
+* Fix crash when plugins directory path is a file (gh #32).
+* Add binary+ASCII layout file (gh #23).
+* Fix issue with statusbar not showing all information (gh #14).
+
+Bless v0.6.2 20190418
+---------------------
+
+* Fix rendering with monospace fonts with ligatures (gh #1).
+* Fix crash when searching (gh #3).
+* Fix incorrect notifications for file content changes (gh #7).
+* Fix crash when trying to save a file in-place.
+* Fix (harmless) Gtk-CRITICAL errors for file content change notifications.
+* Fix installation with newer autotools (gh #8).
+
+Bless v0.6.1 20180919 - Better late than never
+----------------------------------------------
+
+* Use 'mcs' compiler by default, and allow proper overriding during configure.
+* Fix problem saving when the tempdir config entry hasn't been specified.
+* Fix reading and writing to XML config files.
+* Fix crash when trying to save a file without write permissions.
+* Fix various compilation warnings.
+* Moved to new home: https://github.com/afrantzis/bless
+
 Bless v0.6.0 20080814
 ---------------------
 

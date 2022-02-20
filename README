@@ -1,6 +1,6 @@
-Bless - Gtk# Hex Editor v0.6.0
+Bless - Gtk# Hex Editor v0.6.3
 ==============================
-Copyright (c) 2004-2008, Alexandros Frantzis
+Copyright (c) 2004-2020, Alexandros Frantzis
 
 Thank you for using ( or at least trying out :) ) Bless!
 
@@ -23,8 +23,8 @@ Bless is a binary (hex) editor, a program that enables you to edit files as
 a sequence of bytes. It is written in C# and uses the Gtk# bindings for the 
 GTK+ toolkit.
 
-Bless is distributed under the terms of the GNU General Public License (GPL). 
-See the file COPYING for more information.
+Bless is distributed under the terms of the GNU General Public License
+(GPL-2.0-or-later).  See the file COPYING for more information.
 
 Main Features
 -------------
@@ -50,7 +50,7 @@ Planned Features
 ------------------------------------
 
 More information, bug reports and the latest releases can be found at: 
-  http://home.gna.org/bless
+  https://github.com/afrantzis/bless
 
 I can be contacted at: alf82 [at] freemail [dot] gr.
 
@@ -67,6 +67,9 @@ To build and run the current version of bless you need:
     * mono/.NET runtime and C# compiler >= 1.1.14 (http://www.mono-project.com)
     * Gtk# bindings >= 2.8 for GTK+ (http://gtk-sharp.sourceforge.net)
     * pkg-config (Included in all modern GNU/Linux distributions)
+    * meson >= 0.46
+    * nunit and nunit-console, if you want to build and run tests
+    * xsltproc and docbook stylesheet, if you want to produce HTML documentation
     
 Development is done using the latest stable versions of the above libraries. 
 Although using an older version may be OK, there is no guarantee that there 
@@ -76,45 +79,53 @@ will not be problems.
 4. Installation
 ---------------
 Quick: 
-    untar, ./configure, make, (make install)
+    git clone https://github.com/afrantzis/bless
+    meson setup build (-Dopt=val --buildtype=type ...)
+    ninja -C build
+    (ninja -C build install)
 
 Detailed:
 
-Step 1: Untar the source package
+Step 1: Get the source
 ---------------------------------
-For a tar.gz package use:
-    tar -xzvf bless-a.b.c.tar.gz
+To get the latest source:
+    git clone https://github.com/afrantzis/bless
 
-For a tar.bz2 package use:
-    tar -xjvf bless-a.b.c.tar.gz
+For a compressed tarball use:
+    tar -xf bless-a.b.c.tar.gz
 
 Step 2: Configure the build
 -----------------------------
-Enter the directory created in the previous step (bless-a.b.c) and type
-'./configure'. The script will check if your system has all the required
-libraries. Use the "--prefix=*" option to set the installation directory prefix.
-By default the prefix is '/usr/local'.
+Enter the directory created in the previous step (bless or bless-a.b.c). To
+configure the build and check that your system has all the required libraries
+use: 
 
-You can also use the "--enable-debug" option to build bless with debug
-information.
+    $ meson setup build (-Dopt=val --buildtype=type ...)
+
+Use the "-Dprefix=PREFIX" option to set the installation directory prefix.  By
+default the prefix is '/usr/local'.
+
+You can use the "--buildtype=release" option to build bless in release mode,
+by default the debug mode is built.
 
 Step 3: Build the program
 -----------------------------
-Type 'make'. This will create 'bless.exe' and the necessary library files in the
-bin/ directory and the 'bless' launcher script in the bless-a.b.c directory. You
-can also type 'make check' to run some tests on various bless components. 
+Type 'ninja -C build'. This will create 'bless.exe' and the necessary library
+files in the build/src directory. You can also type 'ninja -C build test' to
+run some tests on various bless components. Note that running the tests
+requires the 'nunit-console' binary.
 
 Step 4: Install the program (optional)
 --------------------------------------
-Become root and type 'make install'.
+Become root and type 'ninja -C build install'.
 
 
 ----------
 5. Running
 ----------
-If you chose to install the program, just type 'bless'. In any case you can  
-run the program by typing 'bless' in the 'bless-a.b.c' directory.
-Enjoy!
+If you chose to install the program, just type 'bless'. In any case you can
+run the program by typing 'mono build/src/bless.exe' from within the top source
+directory.  Enjoy!
 
 ----------------
 6. Documentation
@@ -124,7 +135,7 @@ The doc/ directory contains documentation directed both at the user and at the
 developer who wants to explore Bless. The doc/user/ subdirectory contains 
 information about using bless whereas doc/developer/ contains developer 
 information (bless api etc). 
-Note: The developer documentation is almost non-existant.
+Note: The developer documentation is almost non-existent.
 
 ---------------
 7. Known Issues

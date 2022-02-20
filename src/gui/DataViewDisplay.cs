@@ -294,6 +294,10 @@ public class DataViewDisplay : Gtk.VBox {
 		// find bytes per row...
 		int bpr = FindBestBpr(winWidth);
 
+		// Ensure our offset is always aligned with bpr
+		if (bpr > 0)
+			layout.AreaGroup.Offset = (layout.AreaGroup.Offset / bpr) * bpr;
+
 		// configure areas
 		int s = 0;
 		int fontHeight = winHeight;
@@ -443,9 +447,9 @@ public class DataViewDisplay : Gtk.VBox {
 	{
 		if (fileChangedBar == null) {
 			fileChangedBar = new FileChangedBar(this.View);
+			this.PackStart(fileChangedBar, false, false, 0);
 		}
 
-		this.PackStart(fileChangedBar, false, false, 0);
 		this.ReorderChild(fileChangedBar, 0);
 		fileChangedBar.ShowAll();
 	}

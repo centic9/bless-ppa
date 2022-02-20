@@ -25,6 +25,7 @@ using System.IO;
 using System.Threading;
 using Bless.Util;
 using Bless.Tools;
+using Mono.Unix;
 
 namespace Bless.Buffers {
 
@@ -122,7 +123,7 @@ public class ByteBuffer : BaseBuffer {
 		SaveCheckpoint = null;
 		
 		// name the buffer automatically
-		autoFilename = "Untitled " + ByteBuffer.autoNum;
+		autoFilename = Catalog.GetString("Untitled") + " " + ByteBuffer.autoNum;
 		ByteBuffer.autoNum++;
 		
 		// set default permissions 
@@ -670,7 +671,7 @@ public class ByteBuffer : BaseBuffer {
 	/// Returns as a SegmentCollection the data contained in 
 	/// the specified range in the buffer.  
 	///</summary>
-	public SegmentCollection RangeToSegmentCollection(Range range)
+	public SegmentCollection RangeToSegmentCollection(Util.Range range)
 	{
 		if (range.Size == 0)
 			return null;
@@ -776,9 +777,9 @@ public class ByteBuffer : BaseBuffer {
 		fsw = new FileSystemWatcher();
 		fsw.Path = Path.GetDirectoryName(fileBuf.Filename);
 		fsw.Filter = Path.GetFileName(fileBuf.Filename);
-		fsw.NotifyFilter = NotifyFilters.FileName|NotifyFilters.LastAccess|NotifyFilters.LastWrite;
+		// Currently we only properly support file content changes
+		fsw.NotifyFilter = NotifyFilters.LastWrite;
 		fsw.Changed += new FileSystemEventHandler(OnFileChanged);
-		//fsw.Deleted += new FileSystemEventHandler(OnFileChanged);
 		
 		fsw.EnableRaisingEvents = true;
 	}
@@ -787,9 +788,7 @@ public class ByteBuffer : BaseBuffer {
 	{
 		EmitFileChanged();
 	}
-	
-	
-	
+
 	public override byte this[long index] {
 		set { } 
 		get {
@@ -957,7 +956,7 @@ public class ByteBuffer : BaseBuffer {
 	///</summary>
 	public string TempDir {
 		get { return tempDir; }
-		set { tempDir = value;}
+		set {  tempDir = (value == "") ? Path.GetTempPath() : value; }
 	}
 	
 	///<summary>

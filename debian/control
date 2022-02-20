@@ -5,20 +5,23 @@ Maintainer: Debian CLI Applications Team <pkg-cli-apps-team@lists.alioth.debian.
 Uploaders: Iain Lane <laney@debian.org>
 Build-Depends: debhelper (>= 11),
                pkg-config,
-Build-Depends-Indep: cli-common-dev (>= 0.4.4),
+Build-Depends-Indep: cli-common-dev (>= 0.8~),
                      mono-devel (>= 2.4.3),
+                     nunit-console,
+                     itstool,
                      libglib2.0-cil-dev,
                      libgtk2.0-cil-dev,
-                     libglade2.0-cil-dev
-Standards-Version: 4.2.1
-Homepage: http://home.gna.org/bless/
+                     libglade2.0-cil-dev,
+                     meson
+Standards-Version: 4.6.0
+Homepage: https://github.com/afrantzis/bless
 Vcs-Git: https://salsa.debian.org/dotnet-team/bless.git
 Vcs-Browser: https://salsa.debian.org/dotnet-team/bless
 
 Package: bless
 Architecture: all
 Depends: ${cli:Depends}, ${misc:Depends}
-Description: A full featured hexadecimal editor
+Description: Full featured hexadecimal editor
  Bless is a binary (hex) editor, a program that enables you to edit files
  as a sequence of bytes written for the GNOME Desktop. Main features are:
  .

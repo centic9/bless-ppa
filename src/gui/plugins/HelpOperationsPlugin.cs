@@ -39,14 +39,14 @@ public class HelpOperationsPlugin : GuiPlugin
 		"	</menu>" +
 		"</menubar>";
 
-	DataBook dataBook;
-	Window mainWindow;
+	//DataBook dataBook;
+	//Window mainWindow;
 	UIManager uiManager;
 
 	public HelpOperationsPlugin(Window mw, UIManager uim)
 	{
-		mainWindow = mw;
-		dataBook = (DataBook)GetDataBook(mainWindow);
+		//mainWindow = mw;
+		//dataBook = (DataBook)GetDataBook(mainWindow);
 		uiManager = uim;
 
 		name = "HelpOperations";
@@ -85,7 +85,8 @@ public class HelpOperationsPlugin : GuiPlugin
 	{
 #if ENABLE_UNIX_SPECIFIC
 		string helpScript = FileResourcePath.GetDataPath("help_script.sh");
-		System.Diagnostics.Process.Start(helpScript);
+		string helpDir = FileResourcePath.GetHelpDir();
+		System.Diagnostics.Process.Start(helpScript, helpDir);
 #endif
 	}
 

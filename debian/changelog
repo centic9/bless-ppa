@@ -1,3 +1,14 @@
+bless (0.6.3-1) unstable; urgency=medium
+
+  [ Felix Dörre ]
+  * New upstream version (Closes: #975251)
+  * Adjust path for system-provided layouts (Closes: #952519)
+
+  [ Iain Lane ]
+  * Add nunit-console and itstool BDs
+
+ -- Felix Dörre <debian@felixdoerre.de>  Sun, 20 Feb 2022 13:06:52 +0000
+
 bless (0.6.0-7) unstable; urgency=medium
 
   * [9d4017b] Fix save behaviour (Closes: #850627, 767216)
