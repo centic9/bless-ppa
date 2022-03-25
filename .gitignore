@@ -3,3 +3,5 @@ po/**
 !po/LINGUAS
 !po/Makevars
 !po/POTFILES.in
+.pc/
+debian/files

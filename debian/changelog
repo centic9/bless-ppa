@@ -9,6 +9,35 @@ bless (0.6.3-1) unstable; urgency=medium
 
  -- Felix Dörre <debian@felixdoerre.de>  Sun, 20 Feb 2022 13:06:52 +0000
 
+bless (0.6.2-0ubuntu0~ppa4) bionic; urgency=medium
+
+  * Fix patch.
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Sat, 04 Apr 2020 22:07:30 +0200
+
+bless (0.6.2-0ubuntu0~ppa3) bionic; urgency=medium
+
+  * Manually merge in changes from 0.6.0-6 and -7 in Debian.
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Sat, 04 Apr 2020 20:39:35 +0200
+
+bless (0.6.2-0ubuntu0~ppa2) bionic; urgency=medium
+
+  * Run autogen.sh to add missing files required for building now.
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Wed, 01 May 2019 10:52:53 +0200
+
+bless (0.6.2-0ubuntu0~ppa1) bionic; urgency=medium
+
+  * Update to latest upstream version
+  * Update watch-file to new location at https://github.com/afrantzis/bless
+  * Update homepage in control
+  * Fix a lintian warning
+  * Update Standards-Version to 4.3.0
+  * Remove one patch where code was changed upstream
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Wed, 01 May 2019 10:11:39 +0200
+
 bless (0.6.0-7) unstable; urgency=medium
 
   * [9d4017b] Fix save behaviour (Closes: #850627, 767216)
