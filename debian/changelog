@@ -1,3 +1,9 @@
+bless (0.6.3-1ubuntu0~ppa1) focal; urgency=medium
+
+  * Backport to Focal
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Fri, 25 Mar 2022 10:12:58 +0100
+
 bless (0.6.3-1) unstable; urgency=medium
 
   [ Felix Dörre ]
