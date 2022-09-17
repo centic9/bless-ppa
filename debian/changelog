@@ -1,3 +1,9 @@
+bless (0.6.3-1ubuntu0~ppa2) jammy; urgency=medium
+
+  * Update to Jammy
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Sat, 17 Sep 2022 11:35:44 +0200
+
 bless (0.6.3-1ubuntu0~ppa1) focal; urgency=medium
 
   * Backport to Focal
